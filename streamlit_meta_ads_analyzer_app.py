@@ -1,23 +1,21 @@
 # -*- coding: utf-8 -*-
 """
-Streamlit Meta Ads Analyzer (IT) — v2
--------------------------------------
+Streamlit Meta Ads Analyzer (IT) — v2.2 (fix completo)
+-----------------------------------------------------
 Mini web-app per analisi giornaliera delle metriche Meta Ads (CSV manuale).
 
-Novità v2:
-- Dashboard **Panoramica** con KPI cards (CPL, CTR link, **Frequenza aggregata**, **ROAS stimato**, Spesa).
-- Input in sidebar per **Valore medio cliente** e **Tasso di chiusura** (per ROAS stimato).
-- Calcolo **Frequenza aggregata = somma(Impression)/somma(Copertura)** nel range.
-- Grafici trend in Panoramica (CPL, CTR link, Frequenza, Spesa) + mantenute tutte le tabs metriche.
-- UI/UX rifinita (etichette italiane, warning su dati mancanti).
+Novità v2.x:
+- Dashboard Panoramica con KPI (CPL, CTR link, Frequenza aggregata, ROAS stimato, Spesa) e 4 grafici trend.
+- Sidebar con Valore medio cliente (€) e Tasso di chiusura (%) per calcolo ROAS.
+- Calcolo Frequenza aggregata = somma(Impression) / somma(Copertura) nel range.
+- Mantenute Tabs per metrica, Degradamento, Salute & Azioni (rule engine), Proiezioni e Budget & Obiettivi.
+- **Fix**: generazione date future nelle proiezioni (niente più SyntaxError/IndentationError).
 
-File: app.py
+File principale: può chiamarsi `app.py` o `streamlit_meta_ads_analyzer_app.py`.
 Requisiti: streamlit, pandas, numpy, plotly, scikit-learn, python-dateutil
 """
 
 from __future__ import annotations
-import io
-import math
 from dataclasses import dataclass
 from datetime import datetime, timedelta, date
 from typing import Dict, List, Optional, Tuple
@@ -26,7 +24,6 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
-from dateutil.relativedelta import relativedelta
 from sklearn.linear_model import LinearRegression
 
 # =============================
@@ -242,7 +239,7 @@ def sidebar_filters(df: pd.DataFrame) -> Tuple[str, str, str, Tuple[date, date]]
     st.sidebar.subheader("Input business (per ROAS)")
     avg_ticket = st.sidebar.number_input("Valore medio cliente (€)", min_value=0.0, value=st.session_state.avg_ticket or 0.0, step=50.0, format="%0.2f")
     st.session_state.avg_ticket = avg_ticket if avg_ticket > 0 else None
-    close_rate = st.sidebar.number_input("Tasso di chiusura (%)", min_value=0.0, max_value=100.0, value=st.session_state.close_rate or 0.0, step=1.0, format="%0.1f")
+    close_rate = st.sidebar.number_input("Tasso di chiusura (%)", min_value=0.0, max_value=100.0, value=st.session_state.close_rate*100 if st.session_state.close_rate else 0.0, step=1.0, format="%0.1f")
     st.session_state.close_rate = close_rate/100.0 if close_rate > 0 else None
 
     st.sidebar.markdown("---")
@@ -277,11 +274,9 @@ def filter_df(df: pd.DataFrame, azienda: str, livello: str, entita: str, drange:
 
 def editing_block(df_entita: pd.DataFrame, azienda: str, livello: str, entita: str):
     st.markdown("## Inserimento / Editing dati")
-    st.caption("Modifica solo le righe dell'entità selezionata. Usa i pulsanti per aggiungere o eliminare righe.")
+    st.caption("Modifica solo le righe dell'entità selezionata. Usa i pulsanti per aggiungere o eliminare riga.")
 
-    editable_cols = [c for c in COLUMNS if c not in ("azienda", "livello", "nome_entita")]
-
-    col_a, col_b = st.columns(2)
+    col_a, _ = st.columns(2)
     with col_a:
         if st.button("Aggiungi riga"):
             new_row = {c: None for c in COLUMNS}
@@ -709,14 +704,20 @@ def salute_azioni_tab(df_range: pd.DataFrame):
         std = np.std(resid)
         Xf = np.arange(len(s), len(s) + 7).reshape(-1, 1)
         yf = lr.predict(Xf)
-        x_dates = list(dfm["data_dt"].dropna().iloc[-len(s):]) + [dfm["data_dt"].dropna().iloc[-1] + timedelta(days{i}+1) for i in range(7)]
+
+        # Costruzione asse temporale storico + futuro (FIX)
+        hist_dates = list(dfm["data_dt"].dropna().iloc[-len(s):])
+        last_date = dfm["data_dt"].dropna().iloc[-1]
+        future_dates = [last_date + timedelta(days=i+1) for i in range(7)]
+        x_dates = hist_dates + future_dates
+
         y_all = np.concatenate([y, yf])
 
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x=x_dates[:len(s)], y=y, mode="lines+markers", name="Storico"))
+        fig.add_trace(go.Scatter(x=hist_dates, y=y, mode="lines+markers", name="Storico"))
         fig.add_trace(go.Scatter(x=x_dates, y=y_all, mode="lines", name="Trend"))
-        upper = np.concatenate([y_pred + std, yf + std])
-        lower = np.concatenate([y_pred - std, yf - std])
+        upper = np.concatenate([y_pred, lr.predict(Xf)]) + std
+        lower = np.concatenate([y_pred, lr.predict(Xf)]) - std
         fig.add_trace(go.Scatter(x=x_dates, y=upper, mode="lines", name="+1σ", line=dict(dash="dot")))
         fig.add_trace(go.Scatter(x=x_dates, y=lower, mode="lines", name="-1σ", line=dict(dash="dot"), fill="tonexty"))
         fig.update_layout(height=320, margin=dict(l=10, r=10, t=10, b=10), xaxis_title="Data", yaxis_title=("%" if is_pct else ("€" if is_curr else "Valore")))
