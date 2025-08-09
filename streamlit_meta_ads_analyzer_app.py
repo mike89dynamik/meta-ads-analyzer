@@ -709,7 +709,9 @@ def salute_azioni_tab(df_range: pd.DataFrame):
         std = np.std(resid)
         Xf = np.arange(len(s), len(s) + 7).reshape(-1, 1)
         yf = lr.predict(Xf)
-        x_dates = list(dfm["data_dt"].dropna().iloc[-len(s):]) + [dfm["data_dt"].dropna().iloc[-1] + timedelta(days{i}+1) for i in range(7)]
+        last_date = dfm["data_dt"].dropna().iloc[-1]
+x_dates = list(dfm["data_dt"].dropna().iloc[-len(s):]) + [last_date + timedelta(days=i+1) for i in range(7)]
+
         y_all = np.concatenate([y, yf])
 
         fig = go.Figure()
