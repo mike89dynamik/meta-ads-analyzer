@@ -11,10 +11,10 @@
       position: absolute;
       left: 90px;
       right: 90px;
-      top: 190px;
+      top: 80px;
       color: #fff;
       font-weight: 900;
-      font-size: 108px;
+      font-size: 96px;
       line-height: 0.98;
       letter-spacing: -0.03em;
       text-transform: uppercase;
@@ -25,9 +25,9 @@
     #s1-card {
       position: absolute;
       left: 90px;
-      top: 540px;
+      top: 400px;
       width: 900px;
-      height: 600px;
+      height: 615px;
       border-radius: 36px;
       background: #ece5dd;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
@@ -88,15 +88,15 @@
       margin-top: 6px;
     }
     #s1-b1 {
-      top: 170px;
+      top: 160px;
     }
     #s1-b2 {
-      top: 420px;
+      top: 430px;
     }
     #s1-stamp {
       position: absolute;
-      left: 440px;
-      top: 300px;
+      left: 565px;
+      top: 262px;
       padding: 14px 26px;
       border: 8px solid #c8321e;
       border-radius: 18px;
@@ -115,12 +115,12 @@
       margin-top: 6px;
     }
   </style>
-  <div id="root" data-composition-id="s1" data-width="1080" data-height="1920">
-    <h1 id="s1-head" class="clip" data-start="0" data-duration="6.1" data-layout-allow-overlap>
+  <div id="root" data-composition-id="s1" data-width="1080" data-height="1350">
+    <h1 id="s1-head" class="clip" data-start="0" data-duration="5.95" data-layout-allow-overlap>
       <span class="l1">Non ce<br />l'hanno</span><br /><span class="l2">pagato.</span>
     </h1>
 
-    <div id="s1-card" class="clip" data-start="0" data-duration="6.1">
+    <div id="s1-card" class="clip" data-start="0" data-duration="5.95">
       <div id="s1-cardin">
         <div id="s1-bar">
           <div id="s1-avatar">M</div>
@@ -129,7 +129,7 @@
             <div id="s1-status">Cliente InfissiMarketing</div>
           </div>
         </div>
-        <div id="s1-b1" class="s1-bubble">
+        <div id="s1-b1" class="s1-bubble" data-layout-allow-overlap>
           Ieri dai Bianchi <b>mancava il marito</b>.<br />Quell'appuntamento non ve lo riconosciamo.
           <span class="s1-time">09:12</span>
         </div>
@@ -147,13 +147,13 @@
     // frame 0 is the thumbnail: the client's message is already on screen; it settles in place
     tl.fromTo("#s1-b1", { scale: 0.97 }, { scale: 1, duration: 0.5, ease: "expo.out", transformOrigin: "0% 0%" }, 0);
     // the stamp slams on "non ce l'hanno pagato"
-    tl.fromTo("#s1-stamp", { opacity: 0, scale: 1.8, rotation: -14 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.2, ease: "back.out(1.6)" }, 2.88);
-    tl.fromTo("#s1-cardin", { x: 0 }, { x: 10, duration: 0.05, ease: "none", yoyo: true, repeat: 3 }, 3.06);
+    tl.fromTo("#s1-stamp", { opacity: 0, scale: 1.8, rotation: -14 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.2, ease: "back.out(1.6)" }, 2.97);
+    tl.fromTo("#s1-cardin", { x: 0 }, { x: 10, duration: 0.05, ease: "none", yoyo: true, repeat: 3 }, 3.15);
     // bubble 2: "anche se poi hanno chiuso la vendita"
     tl.fromTo("#s1-b2", { opacity: 0, y: 30, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "expo.out", transformOrigin: "0% 0%" }, 4.1);
     // exit: card blurs out into the next scene
-    tl.to("#s1-cardin, #s1-stamp", { opacity: 0, filter: "blur(10px)", duration: 0.22, ease: "power3.in" }, 5.86);
-    tl.to("#s1-head", { opacity: 0, filter: "blur(10px)", duration: 0.2, ease: "power3.in" }, 5.86);
+    tl.to("#s1-cardin, #s1-stamp", { opacity: 0, filter: "blur(10px)", duration: 0.22, ease: "power3.in" }, 5.71);
+    tl.to("#s1-head", { opacity: 0, filter: "blur(10px)", duration: 0.2, ease: "power3.in" }, 5.71);
     window.__timelines["s1"] = tl;
   </script>
 </template>

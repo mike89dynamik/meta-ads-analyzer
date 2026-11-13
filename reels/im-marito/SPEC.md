@@ -4,8 +4,8 @@ GOAL:    Il titolare di un'azienda di infissi capisce che con InfissiMarketing p
          appuntamenti qualificati (zero fisso) e clicca "Scopri di più" per prenotare una chiamata.
 AUDIENCE: titolari di aziende di serramenti (B2B). Angolo: rischio condiviso / pay per performance
          (da "01 Acquisition — 6. Oneshot", Agenzia_Script_Settembre_2026.docx).
-OUTPUT:  HyperFrames, 1080 x 1920, 30 fps
-TIME:    23.5 s x 30 = 705 frames. Voce = orologio (Kokoro im_nicola, speed 1.22).
+OUTPUT:  HyperFrames, 1080 x 1350 (4:5 feed ads), 30 fps
+TIME:    23.8 s x 30 = 714 frames. Voce = orologio (Arcads "Davide", atempo 1.07; vecchia Kokoro in assets/voice/kokoro).
 
 LOOK:    brand: arancio #E37739, bianco #FFFFFF; inchiostro scuro #1F1B18 solo per testo su bianco
          e box sottotitoli. Fondo pieno (arancio o bianco), niente gradienti, niente glow.

@@ -12,7 +12,7 @@ def disp(t):
 out=[];js=[]
 for gi,g in enumerate(groups):
     s=max(0.1,g[0]["start"]-0.05)
-    nxt=groups[gi+1][0]["start"]-0.05 if gi+1<len(groups) else 23.4
+    nxt=groups[gi+1][0]["start"]-0.05 if gi+1<len(groups) else 23.7
     e=min(g[-1]["end"]+0.25,nxt)
     e=round(e,3);s=round(s,3)
     spans=" ".join(f'<span class="cw" id="cw-{w["id"]}">{html.escape(disp(w["text"]))}</span>' for w in g)
@@ -24,12 +24,12 @@ for gi,g in enumerate(groups):
 doc=f'''<template>
   <style>
     #root {{ position: absolute; inset: 0; pointer-events: none; }}
-    .cg {{ position: absolute; left: 0; right: 0; top: 1196px; text-align: center; overflow: visible; }}
+    .cg {{ position: absolute; left: 0; right: 0; top: 1058px; text-align: center; overflow: visible; }}
     .cbox {{ display: inline-block; padding: 14px 30px 18px; border-radius: 20px; background: #1F1B18;
       font-family: "Inter", sans-serif; font-weight: 900; font-size: 64px; line-height: 1.1; letter-spacing: -0.01em; color: #FFFFFF; }}
     .cw {{ color: #FFFFFF; }}
   </style>
-  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1350">
 {chr(10).join(out)}
   </div>
   <script>

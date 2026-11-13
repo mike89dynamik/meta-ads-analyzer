@@ -4,440 +4,440 @@
 "line": 0,
 "text": "Il",
 "start": 0.15,
-"end": 0.302
+"end": 0.306
 },
 {
 "id": "w1",
 "line": 0,
 "text": "marito",
-"start": 0.302,
-"end": 0.627
+"start": 0.306,
+"end": 0.639
 },
 {
 "id": "w2",
 "line": 0,
 "text": "non",
-"start": 0.627,
-"end": 0.823
+"start": 0.639,
+"end": 0.84
 },
 {
 "id": "w3",
 "line": 0,
 "text": "era",
-"start": 0.823,
-"end": 1.018
+"start": 0.84,
+"end": 1.04
 },
 {
 "id": "w4",
 "line": 0,
 "text": "presente",
-"start": 1.018,
-"end": 1.43
+"start": 1.04,
+"end": 1.462
 },
 {
 "id": "w5",
 "line": 0,
 "text": "all'appuntamento…",
-"start": 1.43,
-"end": 2.19
+"start": 1.462,
+"end": 2.241
 },
 {
 "id": "w6",
 "line": 0,
 "text": "e",
-"start": 2.45,
-"end": 2.562
+"start": 2.578,
+"end": 2.681
 },
 {
 "id": "w7",
 "line": 0,
 "text": "quindi",
-"start": 2.562,
-"end": 2.896
+"start": 2.681,
+"end": 2.989
 },
 {
 "id": "w8",
 "line": 0,
 "text": "non",
-"start": 2.896,
-"end": 3.097
+"start": 2.989,
+"end": 3.174
 },
 {
 "id": "w9",
 "line": 0,
 "text": "ce",
-"start": 3.097,
-"end": 3.253
+"start": 3.174,
+"end": 3.318
 },
 {
 "id": "w10",
 "line": 0,
 "text": "l'hanno",
-"start": 3.253,
-"end": 3.632
+"start": 3.318,
+"end": 3.667
 },
 {
 "id": "w11",
 "line": 0,
 "text": "pagato.",
-"start": 3.632,
-"end": 3.966
+"start": 3.667,
+"end": 3.976
 },
 {
 "id": "w12",
 "line": 1,
 "text": "Anche",
 "start": 4.1,
-"end": 4.402
+"end": 4.38
 },
 {
 "id": "w13",
 "line": 1,
 "text": "se",
-"start": 4.402,
-"end": 4.564
+"start": 4.38,
+"end": 4.531
 },
 {
 "id": "w14",
 "line": 1,
 "text": "poi",
-"start": 4.564,
-"end": 4.773
+"start": 4.531,
+"end": 4.725
 },
 {
 "id": "w15",
 "line": 1,
 "text": "hanno",
-"start": 4.773,
-"end": 5.074
+"start": 4.725,
+"end": 5.005
 },
 {
 "id": "w16",
 "line": 1,
 "text": "chiuso",
-"start": 5.074,
-"end": 5.422
+"start": 5.005,
+"end": 5.329
 },
 {
 "id": "w17",
 "line": 1,
 "text": "la",
-"start": 5.422,
-"end": 5.584
+"start": 5.329,
+"end": 5.48
 },
 {
 "id": "w18",
 "line": 1,
 "text": "vendita.",
-"start": 5.584,
-"end": 5.979
+"start": 5.48,
+"end": 5.846
 },
 {
 "id": "w19",
 "line": 2,
 "text": "Da",
-"start": 6.25,
-"end": 6.423
+"start": 6.05,
+"end": 6.215
 },
 {
 "id": "w20",
 "line": 2,
 "text": "noi",
-"start": 6.423,
-"end": 6.645
+"start": 6.215,
+"end": 6.427
 },
 {
 "id": "w21",
 "line": 2,
 "text": "funziona",
-"start": 6.645,
-"end": 7.114
+"start": 6.427,
+"end": 6.874
 },
 {
 "id": "w22",
 "line": 2,
 "text": "così:",
-"start": 7.114,
-"end": 7.386
+"start": 6.874,
+"end": 7.133
 },
 {
 "id": "w23",
 "line": 2,
 "text": "zero",
-"start": 7.386,
-"end": 7.657
+"start": 7.443,
+"end": 7.761
 },
 {
 "id": "w24",
 "line": 2,
 "text": "fisso",
-"start": 7.657,
-"end": 7.978
+"start": 7.761,
+"end": 8.137
 },
 {
 "id": "w25",
 "line": 2,
 "text": "mensile.",
-"start": 7.978,
-"end": 8.398
+"start": 8.137,
+"end": 8.628
 },
 {
 "id": "w26",
 "line": 2,
 "text": "Paghi",
-"start": 8.675,
-"end": 8.969
+"start": 9.018,
+"end": 9.297
 },
 {
 "id": "w27",
 "line": 2,
 "text": "solo",
-"start": 8.969,
-"end": 9.218
+"start": 9.297,
+"end": 9.533
 },
 {
 "id": "w28",
 "line": 2,
 "text": "gli",
-"start": 9.218,
-"end": 9.422
+"start": 9.533,
+"end": 9.726
 },
 {
 "id": "w29",
 "line": 2,
 "text": "appuntamenti",
-"start": 9.422,
-"end": 10.033
+"start": 9.726,
+"end": 10.306
 },
 {
 "id": "w30",
 "line": 2,
 "text": "qualificati.",
-"start": 10.033,
-"end": 10.598
+"start": 10.306,
+"end": 10.842
 },
 {
 "id": "w31",
 "line": 3,
 "text": "Qualificati",
-"start": 10.75,
-"end": 11.358
+"start": 11.0,
+"end": 11.591
 },
 {
 "id": "w32",
 "line": 3,
 "text": "secondo",
-"start": 11.358,
-"end": 11.771
+"start": 11.591,
+"end": 11.992
 },
 {
 "id": "w33",
 "line": 3,
 "text": "i",
-"start": 11.771,
-"end": 11.893
+"start": 11.992,
+"end": 12.11
 },
 {
 "id": "w34",
 "line": 3,
 "text": "tuoi",
-"start": 11.893,
-"end": 12.16
+"start": 12.11,
+"end": 12.37
 },
 {
 "id": "w35",
 "line": 3,
 "text": "parametri.",
-"start": 12.16,
-"end": 12.67
+"start": 12.37,
+"end": 12.866
 },
 {
 "id": "w36",
 "line": 4,
 "text": "Sui",
-"start": 12.9,
-"end": 13.14
+"start": 13.05,
+"end": 13.271
 },
 {
 "id": "w37",
 "line": 4,
 "text": "nostri",
-"start": 13.14,
-"end": 13.54
+"start": 13.271,
+"end": 13.638
 },
 {
 "id": "w38",
 "line": 4,
 "text": "clienti,",
-"start": 13.54,
-"end": 13.993
+"start": 13.638,
+"end": 14.055
 },
 {
 "id": "w39",
 "line": 4,
 "text": "il",
-"start": 13.993,
-"end": 14.179
+"start": 14.055,
+"end": 14.227
 },
 {
 "id": "w40",
 "line": 4,
 "text": "marketing",
-"start": 14.179,
-"end": 14.739
+"start": 14.227,
+"end": 14.742
 },
 {
 "id": "w41",
 "line": 4,
 "text": "pesa",
-"start": 14.739,
-"end": 15.032
+"start": 14.742,
+"end": 15.011
 },
 {
 "id": "w42",
 "line": 4,
 "text": "al",
-"start": 15.032,
-"end": 15.219
+"start": 15.011,
+"end": 15.183
 },
 {
 "id": "w43",
 "line": 4,
 "text": "massimo",
-"start": 15.219,
-"end": 15.672
+"start": 15.183,
+"end": 15.6
 },
 {
 "id": "w44",
 "line": 4,
 "text": "il",
-"start": 15.672,
-"end": 15.859
+"start": 15.6,
+"end": 15.771
 },
 {
 "id": "w45",
 "line": 4,
 "text": "3,5%",
-"start": 15.859,
-"end": 17.138
+"start": 15.771,
+"end": 16.948
 },
 {
 "id": "w46",
 "line": 4,
 "text": "del",
-"start": 17.138,
-"end": 17.378
+"start": 16.948,
+"end": 17.169
 },
 {
 "id": "w47",
 "line": 4,
 "text": "fatturato.",
-"start": 17.378,
-"end": 17.938
+"start": 17.169,
+"end": 17.684
 },
 {
 "id": "w48",
 "line": 5,
 "text": "Ci",
-"start": 18.15,
-"end": 18.296
+"start": 17.9,
+"end": 18.026
 },
 {
 "id": "w49",
 "line": 5,
 "text": "prendiamo",
-"start": 18.296,
-"end": 18.732
+"start": 18.026,
+"end": 18.406
 },
 {
 "id": "w50",
 "line": 5,
 "text": "il",
-"start": 18.732,
-"end": 18.878
+"start": 18.406,
+"end": 18.532
 },
 {
 "id": "w51",
 "line": 5,
 "text": "rischio",
-"start": 18.878,
-"end": 19.231
+"start": 18.532,
+"end": 18.839
 },
 {
 "id": "w52",
 "line": 5,
 "text": "con",
-"start": 19.231,
-"end": 19.418
+"start": 18.839,
+"end": 19.002
 },
 {
 "id": "w53",
 "line": 5,
 "text": "te.",
-"start": 19.418,
-"end": 19.564
+"start": 19.002,
+"end": 19.128
 },
 {
 "id": "w54",
 "line": 5,
 "text": "Clicca",
-"start": 19.754,
-"end": 20.104
+"start": 19.501,
+"end": 19.857
 },
 {
 "id": "w55",
 "line": 5,
 "text": "su",
-"start": 20.104,
-"end": 20.267
+"start": 19.857,
+"end": 20.024
 },
 {
 "id": "w56",
 "line": 5,
 "text": "Scopri",
-"start": 20.267,
-"end": 20.617
+"start": 20.024,
+"end": 20.38
 },
 {
 "id": "w57",
 "line": 5,
 "text": "di",
-"start": 20.617,
-"end": 20.781
+"start": 20.38,
+"end": 20.547
 },
 {
 "id": "w58",
 "line": 5,
 "text": "più",
-"start": 20.781,
-"end": 20.991
+"start": 20.547,
+"end": 20.761
 },
 {
 "id": "w59",
 "line": 5,
 "text": "e",
-"start": 20.991,
-"end": 21.107
+"start": 20.982,
+"end": 21.078
 },
 {
 "id": "w60",
 "line": 5,
 "text": "prenota",
-"start": 21.107,
-"end": 21.504
+"start": 21.078,
+"end": 21.403
 },
 {
 "id": "w61",
 "line": 5,
 "text": "una",
-"start": 21.504,
-"end": 21.714
+"start": 21.403,
+"end": 21.575
 },
 {
 "id": "w62",
 "line": 5,
 "text": "chiamata.",
-"start": 21.714,
-"end": 22.157
+"start": 21.575,
+"end": 21.939
 }
 ]

@@ -16,10 +16,10 @@
       position: absolute;
       left: 90px;
       right: 90px;
-      top: 200px;
+      top: 80px;
       color: #1f1b18;
       font-weight: 900;
-      font-size: 120px;
+      font-size: 104px;
       line-height: 0.98;
       letter-spacing: -0.03em;
       text-transform: uppercase;
@@ -35,7 +35,7 @@
       position: absolute;
       left: 0;
       right: 0;
-      top: 640px;
+      top: 490px;
       text-align: center;
       font-weight: 900;
       font-size: 96px;
@@ -49,7 +49,7 @@
     #s5-btn {
       position: absolute;
       left: 90px;
-      top: 820px;
+      top: 660px;
       width: 900px;
     }
     #s5-btnin {
@@ -69,7 +69,7 @@
       position: absolute;
       left: 0;
       right: 0;
-      top: 1010px;
+      top: 850px;
       text-align: center;
       font-size: 38px;
       font-weight: 700;
@@ -80,22 +80,22 @@
       color: #e37739;
     }
   </style>
-  <div id="root" data-composition-id="s5" data-width="1080" data-height="1920">
-    <div id="s5-flood" class="clip" data-start="0" data-duration="5.45"></div>
-    <h1 id="s5-head" class="clip" data-start="0" data-duration="5.45">
+  <div id="root" data-composition-id="s5" data-width="1080" data-height="1350">
+    <div id="s5-flood" class="clip" data-start="0" data-duration="6"></div>
+    <h1 id="s5-head" class="clip" data-start="0" data-duration="6">
       <span class="w">Ci</span> <span class="w">prendiamo</span><br /><span class="w">il</span>
       <span class="w"><em>rischio</em></span><br /><span class="w">con</span> <span class="w">te.</span>
     </h1>
-    <div id="s5-mark" class="clip" data-start="0" data-duration="5.45">
+    <div id="s5-mark" class="clip" data-start="0" data-duration="6">
       <div id="s5-markin">Infissi<em>Marketing</em></div>
     </div>
-    <div id="s5-btn" class="clip" data-start="0" data-duration="5.45">
+    <div id="s5-btn" class="clip" data-start="0" data-duration="6">
       <div id="s5-btnin">
         Prenota una chiamata
         <svg width="46" height="46" viewBox="0 0 46 46"><path d="M8 23 H36 M24 11 L36 23 L24 35" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></svg>
       </div>
     </div>
-    <div id="s5-sub" class="clip" data-start="0" data-duration="5.45">
+    <div id="s5-sub" class="clip" data-start="0" data-duration="6">
       <div id="s5-subin">Tocca <b>Scopri di più</b> · chiamata conoscitiva</div>
     </div>
   </div>
@@ -103,16 +103,16 @@
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#s5-flood", { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power2.inOut" }, 0);
     // words land on their spoken time (abs 18.15 18.30 18.73 18.88 19.23 19.42)
-    [0.1, 0.25, 0.68, 0.83, 1.18, 1.37].forEach((t, i) => {
+    [0.1, 0.23, 0.61, 0.73, 1.04, 1.2].forEach((t, i) => {
       tl.fromTo(`#s5-head .w:nth-of-type(${i + 1})`, { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power2.out" }, t);
     });
     // "Clicca" (abs 19.75 -> local 1.70): mark wipes in, button rises
-    tl.fromTo("#s5-markin", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" }, 1.55);
+    tl.fromTo("#s5-markin", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" }, 1.6);
     tl.fromTo("#s5-btnin", { opacity: 0, y: 40, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "expo.out" }, 1.75);
     // press on "Scopri" (abs 20.27 -> local 2.22)
-    tl.to("#s5-btnin", { scale: 0.95, duration: 0.08, ease: "power2.in" }, 2.27);
-    tl.to("#s5-btnin", { scale: 1, duration: 0.3, ease: "back.out(2)" }, 2.35);
-    tl.fromTo("#s5-subin", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 2.4);
+    tl.to("#s5-btnin", { scale: 0.95, duration: 0.08, ease: "power2.in" }, 2.25);
+    tl.to("#s5-btnin", { scale: 1, duration: 0.3, ease: "back.out(2)" }, 2.33);
+    tl.fromTo("#s5-subin", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 2.45);
     window.__timelines["s5"] = tl;
   </script>
 </template>

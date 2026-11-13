@@ -11,10 +11,10 @@
       position: absolute;
       left: 90px;
       right: 90px;
-      top: 200px;
+      top: 80px;
       color: #1f1b18;
       font-weight: 900;
-      font-size: 120px;
+      font-size: 104px;
       line-height: 0.98;
       letter-spacing: -0.03em;
       text-transform: uppercase;
@@ -26,14 +26,14 @@
     #s3-card {
       position: absolute;
       left: 90px;
-      top: 540px;
+      top: 400px;
       width: 900px;
-      height: 600px;
+      height: 580px;
       border-radius: 36px;
       background: #fff;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
       border: 2px solid #eee;
-      padding: 44px 52px;
+      padding: 36px 52px;
       color: #1f1b18;
     }
     #s3-label {
@@ -83,11 +83,11 @@
       color: #e37739;
     }
   </style>
-  <div id="root" data-composition-id="s3" data-width="1080" data-height="1920">
-    <h1 id="s3-head" class="clip" data-start="0" data-duration="4">
+  <div id="root" data-composition-id="s3" data-width="1080" data-height="1350">
+    <h1 id="s3-head" class="clip" data-start="0" data-duration="3.55">
       Le regole<br /><em>le decidi tu</em>
     </h1>
-    <div id="s3-card" class="clip" data-start="0" data-duration="4">
+    <div id="s3-card" class="clip" data-start="0" data-duration="3.55">
       <div id="s3-in">
         <div id="s3-label">I tuoi parametri</div>
         <div id="s3-title">Appuntamento qualificato</div>
@@ -104,13 +104,13 @@
     tl.fromTo("#s3-head", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power2.out" }, 0.0);
     tl.fromTo("#s3-label, #s3-title, .s3-row", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, stagger: 0.06, ease: "power2.out" }, 0.05);
     // ticks on 10.75 / 11.2 / 11.65 / 12.1 (abs) = local 1.0, 1.45, 1.9, 2.35
-    [1.0, 1.45, 1.9, 2.35].forEach((t, i) => {
+    [0.8, 1.25, 1.7, 2.15].forEach((t, i) => {
       tl.fromTo(`.s3-row:nth-of-type(${i + 3}) .s3-tick`, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(1.7)" }, t);
     });
-    tl.fromTo("#s3-foot", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.3, ease: "expo.out" }, 2.45);
+    tl.fromTo("#s3-foot", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.3, ease: "expo.out" }, 2.4);
     // exit
-    tl.to("#s3-card", { opacity: 0, scale: 0.92, filter: "blur(10px)", duration: 0.25, ease: "power3.in" }, 3.75);
-    tl.to("#s3-head", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in" }, 3.78);
+    tl.to("#s3-card", { opacity: 0, scale: 0.92, filter: "blur(10px)", duration: 0.25, ease: "power3.in" }, 3.3);
+    tl.to("#s3-head", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in" }, 3.33);
     window.__timelines["s3"] = tl;
   </script>
 </template>
