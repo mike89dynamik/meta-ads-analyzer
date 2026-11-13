@@ -1,0 +1,159 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #e37739;
+      font-family: "Inter", sans-serif;
+      overflow: hidden;
+    }
+    #s1-head {
+      position: absolute;
+      left: 90px;
+      right: 90px;
+      top: 190px;
+      color: #fff;
+      font-weight: 900;
+      font-size: 108px;
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+    #s1-head .l2 {
+      color: #1f1b18;
+    }
+    #s1-card {
+      position: absolute;
+      left: 90px;
+      top: 540px;
+      width: 900px;
+      height: 600px;
+      border-radius: 36px;
+      background: #ece5dd;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+      overflow: hidden;
+    }
+    #s1-bar {
+      height: 128px;
+      background: #075e54;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 0 36px;
+      color: #fff;
+    }
+    #s1-avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: #cfd8dc;
+      color: #455a64;
+      font-weight: 900;
+      font-size: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #s1-name {
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 1.1;
+    }
+    #s1-status {
+      font-weight: 400;
+      font-size: 30px;
+      opacity: 0.85;
+    }
+    .s1-bubble {
+      position: absolute;
+      left: 36px;
+      max-width: 740px;
+      background: #fff;
+      border-radius: 8px 28px 28px 28px;
+      padding: 22px 28px 16px;
+      color: #1f1b18;
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 1.25;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.08);
+    }
+    .s1-bubble b {
+      font-weight: 700;
+    }
+    .s1-time {
+      display: block;
+      text-align: right;
+      font-size: 28px;
+      color: #6f757a;
+      margin-top: 6px;
+    }
+    #s1-b1 {
+      top: 170px;
+    }
+    #s1-b2 {
+      top: 420px;
+    }
+    #s1-stamp {
+      position: absolute;
+      left: 440px;
+      top: 300px;
+      padding: 14px 26px;
+      border: 8px solid #c8321e;
+      border-radius: 18px;
+      color: #c8321e;
+      font-weight: 900;
+      font-size: 54px;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.85);
+    }
+    #s1-stamp small {
+      display: block;
+      font-size: 34px;
+      letter-spacing: 0.06em;
+      margin-top: 6px;
+    }
+  </style>
+  <div id="root" data-composition-id="s1" data-width="1080" data-height="1920">
+    <h1 id="s1-head" class="clip" data-start="0" data-duration="6.1" data-layout-allow-overlap>
+      <span class="l1">Non ce<br />l'hanno</span><br /><span class="l2">pagato.</span>
+    </h1>
+
+    <div id="s1-card" class="clip" data-start="0" data-duration="6.1">
+      <div id="s1-cardin">
+        <div id="s1-bar">
+          <div id="s1-avatar">M</div>
+          <div>
+            <div id="s1-name">Marco · Serramenti</div>
+            <div id="s1-status">Cliente InfissiMarketing</div>
+          </div>
+        </div>
+        <div id="s1-b1" class="s1-bubble">
+          Ieri dai Bianchi <b>mancava il marito</b>.<br />Quell'appuntamento non ve lo riconosciamo.
+          <span class="s1-time">09:12</span>
+        </div>
+        <div id="s1-b2" class="s1-bubble">
+          Però alla fine <b>abbiamo firmato</b> lo stesso!
+          <span class="s1-time">09:13</span>
+        </div>
+      </div>
+      <div id="s1-stamp" data-layout-allow-occlusion>0 €<small>NON PAGATO</small></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // bubble 1 arrives (message-in)
+    // frame 0 is the thumbnail: the client's message is already on screen; it settles in place
+    tl.fromTo("#s1-b1", { scale: 0.97 }, { scale: 1, duration: 0.5, ease: "expo.out", transformOrigin: "0% 0%" }, 0);
+    // the stamp slams on "non ce l'hanno pagato"
+    tl.fromTo("#s1-stamp", { opacity: 0, scale: 1.8, rotation: -14 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.2, ease: "back.out(1.6)" }, 2.88);
+    tl.fromTo("#s1-cardin", { x: 0 }, { x: 10, duration: 0.05, ease: "none", yoyo: true, repeat: 3 }, 3.06);
+    // bubble 2: "anche se poi hanno chiuso la vendita"
+    tl.fromTo("#s1-b2", { opacity: 0, y: 30, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "expo.out", transformOrigin: "0% 0%" }, 4.1);
+    // exit: card blurs out into the next scene
+    tl.to("#s1-cardin, #s1-stamp", { opacity: 0, filter: "blur(10px)", duration: 0.22, ease: "power3.in" }, 5.86);
+    tl.to("#s1-head", { opacity: 0, filter: "blur(10px)", duration: 0.2, ease: "power3.in" }, 5.86);
+    window.__timelines["s1"] = tl;
+  </script>
+</template>

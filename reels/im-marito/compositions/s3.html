@@ -1,0 +1,116 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #fff;
+      font-family: "Inter", sans-serif;
+      overflow: hidden;
+    }
+    #s3-head {
+      position: absolute;
+      left: 90px;
+      right: 90px;
+      top: 200px;
+      color: #1f1b18;
+      font-weight: 900;
+      font-size: 120px;
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+    #s3-head em {
+      font-style: normal;
+      color: #e37739;
+    }
+    #s3-card {
+      position: absolute;
+      left: 90px;
+      top: 540px;
+      width: 900px;
+      height: 600px;
+      border-radius: 36px;
+      background: #fff;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+      border: 2px solid #eee;
+      padding: 44px 52px;
+      color: #1f1b18;
+    }
+    #s3-label {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8a8580;
+    }
+    #s3-title {
+      font-size: 46px;
+      font-weight: 900;
+      margin: 8px 0 18px;
+    }
+    .s3-row {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 42px;
+      font-weight: 700;
+      padding: 12px 0;
+      border-top: 2px solid #eee;
+    }
+    .s3-box {
+      position: relative;
+      flex: 0 0 56px;
+      height: 56px;
+      border-radius: 14px;
+      border: 4px solid #d6d1cc;
+    }
+    .s3-tick {
+      position: absolute;
+      inset: -4px;
+      border-radius: 14px;
+      background: #e37739;
+    }
+    .s3-tick svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #s3-foot {
+      margin-top: 18px;
+      font-size: 34px;
+      font-weight: 700;
+      color: #e37739;
+    }
+  </style>
+  <div id="root" data-composition-id="s3" data-width="1080" data-height="1920">
+    <h1 id="s3-head" class="clip" data-start="0" data-duration="4">
+      Le regole<br /><em>le decidi tu</em>
+    </h1>
+    <div id="s3-card" class="clip" data-start="0" data-duration="4">
+      <div id="s3-in">
+        <div id="s3-label">I tuoi parametri</div>
+        <div id="s3-title">Appuntamento qualificato</div>
+        <div class="s3-row"><span class="s3-box"><i class="s3-tick"><svg viewBox="0 0 56 56"><path d="M14 29 L24 39 L43 18" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span>Almeno 4 infissi</div>
+        <div class="s3-row"><span class="s3-box"><i class="s3-tick"><svg viewBox="0 0 56 56"><path d="M14 29 L24 39 L43 18" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span>Entrambi i decisori</div>
+        <div class="s3-row"><span class="s3-box"><i class="s3-tick"><svg viewBox="0 0 56 56"><path d="M14 29 L24 39 L43 18" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span>Proprietari della casa</div>
+        <div class="s3-row"><span class="s3-box"><i class="s3-tick"><svg viewBox="0 0 56 56"><path d="M14 29 L24 39 L43 18" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span>Lavori entro 3 mesi</div>
+        <div id="s3-foot">Manca un parametro? Non lo paghi.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s3-head", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power2.out" }, 0.0);
+    tl.fromTo("#s3-label, #s3-title, .s3-row", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, stagger: 0.06, ease: "power2.out" }, 0.05);
+    // ticks on 10.75 / 11.2 / 11.65 / 12.1 (abs) = local 1.0, 1.45, 1.9, 2.35
+    [1.0, 1.45, 1.9, 2.35].forEach((t, i) => {
+      tl.fromTo(`.s3-row:nth-of-type(${i + 3}) .s3-tick`, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(1.7)" }, t);
+    });
+    tl.fromTo("#s3-foot", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.3, ease: "expo.out" }, 2.45);
+    // exit
+    tl.to("#s3-card", { opacity: 0, scale: 0.92, filter: "blur(10px)", duration: 0.25, ease: "power3.in" }, 3.75);
+    tl.to("#s3-head", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in" }, 3.78);
+    window.__timelines["s3"] = tl;
+  </script>
+</template>
