@@ -1,11 +1,11 @@
 import json,re,sys
 lines=[
- (0.15,4.4992,[("Investiresti 3.500 euro…",0,2.186),("per chiudere 100.000 euro di contratti?",2.508,4.4992)]),
- (4.90,6.4502,[("È quanto pesa il marketing sui serramentisti che lavorano con noi:",0,3.122),("al massimo il 3,5% del fatturato.",3.455,6.285)]),
- (11.60,3.368,[("Zero canone mensile.",0,1.291),("Paghi solo gli appuntamenti qualificati.",1.601,3.368)]),
- (15.20,4.3007,[("Proprietari di casa.",0,1.068),("Entrambi i decisori.",1.439,2.597),("Almeno quattro infissi.",2.92,4.3007)]),
- (19.75,2.7841,[("Se manca un requisito,",0,1.098),("quell'appuntamento non lo paghi.",1.25,2.7841)]),
- (22.80,3.1566,[("Clicca su Scopri di più,",0,1.339),("e prenota una chiamata conoscitiva.",1.578,3.1566)]),
+ (0.10,4.0609,[("Investiresti 3.500 euro…",0,1.971),("per chiudere 100.000 euro di contratti?",2.253,4.0609)]),
+ (4.28,5.8122,[("È quanto pesa il marketing sui serramentisti che lavorano con noi:",0,2.823),("al massimo il 3,5% del fatturato.",3.096,5.647)]),
+ (10.21,3.0596,[("Zero canone mensile.",0,1.173),("Paghi solo gli appuntamenti qualificati.",1.438,3.0596)]),
+ (13.39,3.8589,[("Proprietari di casa.",0,0.974),("Entrambi i decisori.",1.277,2.326),("Almeno quattro infissi.",2.615,3.8589)]),
+ (17.37,2.5201,[("Se manca un requisito,",0,0.995),("quell'appuntamento non lo paghi.",1.135,2.5201)]),
+ (20.01,2.8536,[("Clicca su Scopri di più,",0,1.212),("e prenota una chiamata conoscitiva.",1.432,2.8536)]),
 ]
 SPOKEN={'3.500':'tremilacinquecento','100.000':'centomila','3,5%':'trevirgolacinquepercento'}
 def weight(w):

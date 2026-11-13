@@ -1,63 +1,62 @@
 <template>
   <style>
-    #root { position: absolute; inset: 0; background: transparent; font-family: "Inter", sans-serif; overflow: hidden; }
-    .plate { position: absolute; inset: 0; overflow: hidden; }
-    .plate img, .plate video { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; object-fit: cover; }
-    .scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,8,6,0.62) 0%, rgba(10,8,6,0.0) 34%, rgba(10,8,6,0.0) 66%, rgba(10,8,6,0.55) 100%); }
-    .t { position: absolute; left: 40px; right: 40px; text-align: center; color: #fff; font-weight: 900; letter-spacing: -0.035em; line-height: 0.95;
-         text-transform: uppercase; text-shadow: 0 6px 30px rgba(0,0,0,0.45); }
-    .t em { font-style: normal; color: #e37739; }
+    #root { position: absolute; inset: 0; background: transparent; overflow: hidden; font-family: "Archivo Black", "Inter", sans-serif; }
+    .bg { position: absolute; inset: 0; }
+    .cam { position: absolute; inset: 0; perspective: 1400px; }
+    .card { position: absolute; filter: drop-shadow(0 26px 28px rgba(0,0,0,0.38)); }
+    .paper { position: absolute; inset: 0; background: #f7f3ea; }
+    .ph { position: absolute; inset: 14px; overflow: hidden; }
+    .ph img, .ph video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+    .tb { position: absolute; left: 30px; right: 30px; text-align: center; line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; z-index: 20; }
+    .tb em { font-style: normal; color: #E37739; }
+    .tbi { display: inline-block; }
+    .tag { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); white-space: nowrap; padding: 10px 22px; border-radius: 14px; background: #15110E; color: #fff; font-size: 34px; }
 
-    #s4-in { position: absolute; inset: 0; }
-    .s4-w { position: absolute; background: radial-gradient(ellipse at 50% 45%, #ffe2a8 0%, #ffb35c 55%, #e37739 100%); box-shadow: 0 0 60px 18px rgba(255, 170, 80, 0.55); }
-    #s4-list { position: absolute; left: 0; right: 0; top: 40px; text-align: center; }
-    .s4-row { display: block; margin: 0 auto 12px; color: #fff; font-weight: 900; font-size: 56px; letter-spacing: -0.03em; text-transform: uppercase; text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-    .s4-row b { display: inline-block; width: 56px; height: 56px; margin-right: 18px; border-radius: 14px; background: #e37739; vertical-align: -6px; position: relative; }
-    .s4-row b:after { content: ""; position: absolute; left: 18px; top: 8px; width: 14px; height: 28px; border: solid #fff; border-width: 0 7px 7px 0; transform: rotate(45deg); }
+    .glow { position: absolute; opacity: 0; background: radial-gradient(ellipse at 50% 45%, #ffe2a8 0%, #ffb35c 55%, #e37739 100%); box-shadow: 0 0 50px 14px rgba(255,170,80,0.6); }
 
   </style>
   <div id="root" data-composition-id="s4" data-width="1080" data-height="1350">
-    <div id="s4-wrap" style="position:absolute;inset:0" data-layout-allow-overflow data-layout-allow-overlap>
-      <div id="s4-in">
-        <div class="plate"><div id="s4-av"><img src="assets/img/i4.jpg" alt="" />
-        <i id="s4-w1" class="s4-w" style="left:240px;top:316px;width:152px;height:226px"></i>
-        <i id="s4-w2" class="s4-w" style="left:688px;top:316px;width:152px;height:226px"></i>
-        <i id="s4-w3" class="s4-w" style="left:240px;top:812px;width:152px;height:221px"></i>
-        <i id="s4-w4" class="s4-w" style="left:688px;top:812px;width:152px;height:221px"></i>
-        </div></div>
-        <div id="s4-list">
-          <span id="s4-r1" class="s4-row"><b></b>Proprietari di casa</span>
-          <span id="s4-r2" class="s4-row"><b></b>Entrambi i decisori</span>
-          <span id="s4-r3" class="s4-row"><b></b>Almeno 4 infissi</span>
-        </div>
+    <div id="s4-bg" class="bg"></div>
+    <div id="s4-cam" class="cam" data-layout-allow-overflow data-layout-allow-overlap>
+      <div id="d-house" class="card" style="left:160px;top:340px;width:760px;height:950px">
+        <div class="paper" style="clip-path:polygon(0.00% 0.61%, 8.33% 0.37%, 16.67% 0.27%, 25.00% 1.46%, 33.33% 0.92%, 41.67% 1.10%, 50.00% 0.88%, 58.33% 0.61%, 66.67% 1.17%, 75.00% 0.92%, 83.33% 1.25%, 91.67% 1.06%, 100.00% 1.34%, 99.30% 8.33%, 99.75% 16.67%, 99.76% 25.00%, 98.84% 33.33%, 99.73% 41.67%, 98.95% 50.00%, 99.01% 58.33%, 99.90% 66.67%, 98.75% 75.00%, 99.95% 83.33%, 98.61% 91.67%, 98.65% 100.00%, 91.67% 99.65%, 83.33% 98.84%, 75.00% 98.83%, 66.67% 99.80%, 58.33% 98.93%, 50.00% 99.80%, 41.67% 98.54%, 33.33% 98.90%, 25.00% 98.43%, 16.67% 99.91%, 8.33% 99.49%, 0.00% 99.01%, 0.97% 91.67%, 0.29% 83.33%, 1.42% 75.00%, 1.35% 66.67%, 0.48% 58.33%, 0.23% 50.00%, 1.07% 41.67%, 0.65% 33.33%, 1.06% 25.00%, 0.79% 16.67%, 0.63% 8.33%)"><div class="ph" style="clip-path:polygon(0.00% 0.62%, 8.33% 0.08%, 16.67% 0.21%, 25.00% 0.43%, 33.33% 0.04%, 41.67% 0.58%, 50.00% 0.01%, 58.33% 0.15%, 66.67% 0.57%, 75.00% 0.67%, 83.33% 0.31%, 91.67% 0.79%, 100.00% 0.71%, 99.82% 8.33%, 99.85% 16.67%, 99.33% 25.00%, 99.44% 33.33%, 99.26% 41.67%, 99.96% 50.00%, 99.56% 58.33%, 99.68% 66.67%, 99.61% 75.00%, 99.43% 83.33%, 99.47% 91.67%, 99.88% 100.00%, 91.67% 99.31%, 83.33% 99.47%, 75.00% 99.40%, 66.67% 99.53%, 58.33% 99.47%, 50.00% 99.23%, 41.67% 99.35%, 33.33% 99.62%, 25.00% 99.83%, 16.67% 99.81%, 8.33% 99.89%, 0.00% 99.59%, 0.06% 91.67%, 0.40% 83.33%, 0.12% 75.00%, 0.67% 66.67%, 0.30% 58.33%, 0.67% 50.00%, 0.69% 41.67%, 0.68% 33.33%, 0.77% 25.00%, 0.38% 16.67%, 0.54% 8.33%)"><img src="assets/img/i4.jpg" alt="" /><i id="d-w1" class="glow" style="left:163px;top:214px;width:103px;height:153px"></i><i id="d-w2" class="glow" style="left:466px;top:214px;width:103px;height:153px"></i><i id="d-w3" class="glow" style="left:163px;top:550px;width:103px;height:150px"></i><i id="d-w4" class="glow" style="left:466px;top:550px;width:103px;height:150px"></i></div></div>
       </div>
+      <div id="d-t1" class="tb" style="top:70px;font-size:110px;color:#FFFFFF"><span class="tbi"><em>✓</em> Proprietari<br/>di casa</span></div>
+      <div id="d-t2" class="tb" style="top:70px;font-size:110px;color:#FFFFFF"><span class="tbi"><em>✓</em> Entrambi<br/>i decisori</span></div>
+      <div id="d-t3" class="tb" style="top:70px;font-size:110px;color:#FFFFFF"><span class="tbi"><em>✓</em> Almeno<br/><em>4</em> infissi</span></div>
     </div>
   </div>
   <script>
-    function tearPoly(y) {
-      const n = 16; let s = "polygon(0% 100%, 100% 100%";
-      for (let i = n; i >= 0; i--) {
-        const x = (i / n) * 100;
-        const yy = y + (i % 2 ? 2.4 : -2.0) + (((i * 37) % 5) - 2) * 0.5;
-        s += `, ${x.toFixed(2)}% ${yy.toFixed(2)}%`;
-      }
-      return s + ")";
-    }
     const tl = gsap.timeline({ paused: true });
-    function tearTo(sel, at, dur) {
-      const el = document.querySelector(sel); const p = { y: 112 };
-      el.style.clipPath = tearPoly(112);
-      tl.fromTo(p, { y: 112 }, { y: -8, duration: dur, ease: "power3.inOut", onUpdate: () => { el.style.clipPath = tearPoly(p.y); } }, at);
+    const CAM = "#s4-cam", BG = "#s4-bg";
+    function punch(sel, t, from) {
+      tl.fromTo(sel + " .tbi", { opacity: 0, scale: from || 1.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2.2)" }, t);
     }
+    function cut(sel, t) { tl.set(sel + " .tbi", { opacity: 0 }, t); }
+    function shake(t, amp) {
+      const a = amp || 14;
+      tl.fromTo(CAM, { x: 0, y: 0 }, { x: a, y: -a * 0.6, duration: 0.035, ease: "none", yoyo: true, repeat: 5 }, t);
+      tl.set(CAM, { x: 0, y: 0 }, t + 0.22);
+    }
+    function bg(color, t) { tl.set(BG, { backgroundColor: color }, t); }
+    function counter(sel, from, to, t, dur, fmt) {
+      const el = document.querySelector(sel); const c = { v: from };
+      tl.fromTo(c, { v: from }, { v: to, duration: dur, ease: "power2.out", onUpdate: () => { el.textContent = fmt(c.v); } }, t);
+    }
+    const eur = (v) => String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " €";
 
-    tl.fromTo("#s4-in", { opacity: 0, scale: 1.15, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 0);
-    tl.fromTo("#s4-av", { scale: 1.0 }, { scale: 1.07, duration: 4.6, ease: "none", transformOrigin: "50% 60%" }, 0);
-    // lights on the spoken params: abs 15.20 16.64 18.12, all four on "quattro" 18.54
-    [[0.2, "#s4-w1", "#s4-r1"], [1.64, "#s4-w2", "#s4-r2"], [3.12, "#s4-w3", "#s4-r3"]].forEach(([t, w, r]) => {
-      tl.fromTo(w, { opacity: 0 }, { opacity: 0.92, duration: 0.18, ease: "power2.out" }, t);
-      tl.fromTo(r, { opacity: 0, scale: 1.4, filter: "blur(8px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.25, ease: "back.out(1.6)" }, t);
+
+    bg("#15110E", 0);
+    tl.fromTo("#d-house", { scale: 1.35, y: 200, rotation: 6 }, { scale: 1, y: 0, rotation: 2, duration: 0.35, ease: "expo.out" }, 0);
+    tl.to("#d-house", { rotation: -2, duration: 3.6, ease: "none" }, 0.35);
+    [[0.04, "#d-w1", "#d-t1", 1.32], [1.32, "#d-w2", "#d-t2", 2.65], [2.65, "#d-w3", "#d-t3", 9]].forEach(([t, w, txt, end]) => {
+      tl.fromTo(w, { opacity: 0 }, { opacity: 0.95, duration: 0.12, ease: "power2.out" }, t);
+      punch(txt, t, 1.7); shake(t + 0.02, 10);
+      if (end < 9) cut(txt, end);
     });
-    tl.fromTo("#s4-w4", { opacity: 0 }, { opacity: 0.92, duration: 0.18, ease: "power2.out" }, 3.54);
+    tl.fromTo("#d-w4", { opacity: 0 }, { opacity: 0.95, duration: 0.12, ease: "power2.out" }, 3.04);
+    shake(3.06, 14);
+
     window.__timelines["s4"] = tl;
   </script>
 </template>

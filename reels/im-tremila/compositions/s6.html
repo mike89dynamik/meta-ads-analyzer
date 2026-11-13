@@ -1,53 +1,72 @@
 <template>
   <style>
-    #root { position: absolute; inset: 0; background: transparent; font-family: "Inter", sans-serif; overflow: hidden; }
-    .plate { position: absolute; inset: 0; overflow: hidden; }
-    .plate img, .plate video { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; object-fit: cover; }
-    .scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,8,6,0.62) 0%, rgba(10,8,6,0.0) 34%, rgba(10,8,6,0.0) 66%, rgba(10,8,6,0.55) 100%); }
-    .t { position: absolute; left: 40px; right: 40px; text-align: center; color: #fff; font-weight: 900; letter-spacing: -0.035em; line-height: 0.95;
-         text-transform: uppercase; text-shadow: 0 6px 30px rgba(0,0,0,0.45); }
-    .t em { font-style: normal; color: #e37739; }
+    #root { position: absolute; inset: 0; background: transparent; overflow: hidden; font-family: "Archivo Black", "Inter", sans-serif; }
+    .bg { position: absolute; inset: 0; }
+    .cam { position: absolute; inset: 0; perspective: 1400px; }
+    .card { position: absolute; filter: drop-shadow(0 26px 28px rgba(0,0,0,0.38)); }
+    .paper { position: absolute; inset: 0; background: #f7f3ea; }
+    .ph { position: absolute; inset: 14px; overflow: hidden; }
+    .ph img, .ph video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+    .tb { position: absolute; left: 30px; right: 30px; text-align: center; line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; z-index: 20; }
+    .tb em { font-style: normal; color: #E37739; }
+    .tbi { display: inline-block; }
+    .tag { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); white-space: nowrap; padding: 10px 22px; border-radius: 14px; background: #15110E; color: #fff; font-size: 34px; }
 
-    #s6-in { position: absolute; inset: 0; background: #db6e33; }
-    #s6-mark { position: absolute; left: 0; right: 0; top: 70px; text-align: center; font-weight: 900; font-size: 76px; letter-spacing: -0.04em; color: #fff; }
-    #s6-mark em { font-style: normal; color: #1f1b18; }
-    #s6-btn { position: absolute; left: 110px; top: 1030px; width: 860px; height: 140px; border-radius: 28px; background: #fff; color: #1f1b18;
-      display: flex; align-items: center; justify-content: center; gap: 20px; font-size: 48px; font-weight: 900; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+    .prof { position: absolute; left: 290px; top: 330px; width: 500px; height: 782px; transform-style: preserve-3d; filter: drop-shadow(0 40px 40px rgba(80,30,0,0.45)); }
+    .prof img { width: 100%; height: 100%; object-fit: contain; }
+    .btn1 { position: absolute; left: 240px; top: 330px; width: 600px; height: 130px; border-radius: 26px; background: #fff; color: #15110E; display: flex;
+      align-items: center; justify-content: center; font-family: "Inter", sans-serif; font-weight: 900; font-size: 56px; z-index: 21; box-shadow: 0 20px 40px rgba(0,0,0,0.25); }
+    .btn { position: absolute; left: 140px; top: 1050px; width: 800px; height: 120px; border-radius: 26px; background: #fff; color: #15110E; display: flex;
+      align-items: center; justify-content: center; gap: 18px; font-family: "Inter", sans-serif; font-weight: 900; font-size: 46px; z-index: 21; box-shadow: 0 20px 40px rgba(0,0,0,0.25); }
+    .mark { position: absolute; left: 0; right: 0; top: 1200px; text-align: center; font-family: "Inter", sans-serif; font-weight: 900; font-size: 60px; letter-spacing: -0.04em; color: #fff; z-index: 21; }
+    .mark em { font-style: normal; color: #15110E; }
 
   </style>
   <div id="root" data-composition-id="s6" data-width="1080" data-height="1350">
-    <div id="s6-wrap" style="position:absolute;inset:0" data-layout-allow-overflow data-layout-allow-overlap>
-      <div id="s6-in">
-        <div class="plate"><div id="s6-av"><img src="assets/img/i6.jpg" alt="" /></div></div>
-        <div id="s6-mark"><span id="s6-markin">Infissi<em>Marketing</em></span></div>
-        <div id="s6-btn"><span>Prenota una chiamata</span><svg width="48" height="48" viewBox="0 0 46 46"><path d="M8 23 H36 M24 11 L36 23 L24 35" fill="none" stroke="#e37739" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
-      </div>
+    <div id="s6-bg" class="bg"></div>
+    <div id="s6-cam" class="cam" data-layout-allow-overflow data-layout-allow-overlap>
+      <div id="f-prof" class="prof"><img src="assets/img/profilo_cut.png" alt="" /></div>
+      <div id="f-t1" class="tb" style="top:130px;font-size:147px;color:#FFFFFF"><span class="tbi">Clicca su</span></div>
+      <div id="f-btn1" class="btn1"><span id="f-btn1in">Scopri di più</span></div>
+      <div id="f-t3" class="tb" style="top:90px;font-size:112px;color:#FFFFFF"><span class="tbi">Prenota una<br/>chiamata</span></div>
+      <div id="f-btn" class="btn"><span>Chiamata conoscitiva</span><svg width="44" height="44" viewBox="0 0 46 46"><path d="M8 23 H36 M24 11 L36 23 L24 35" fill="none" stroke="#E37739" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+      <div id="f-mark" class="mark">Infissi<em>Marketing</em></div>
     </div>
   </div>
   <script>
-    function tearPoly(y) {
-      const n = 16; let s = "polygon(0% 100%, 100% 100%";
-      for (let i = n; i >= 0; i--) {
-        const x = (i / n) * 100;
-        const yy = y + (i % 2 ? 2.4 : -2.0) + (((i * 37) % 5) - 2) * 0.5;
-        s += `, ${x.toFixed(2)}% ${yy.toFixed(2)}%`;
-      }
-      return s + ")";
-    }
     const tl = gsap.timeline({ paused: true });
-    function tearTo(sel, at, dur) {
-      const el = document.querySelector(sel); const p = { y: 112 };
-      el.style.clipPath = tearPoly(112);
-      tl.fromTo(p, { y: 112 }, { y: -8, duration: dur, ease: "power3.inOut", onUpdate: () => { el.style.clipPath = tearPoly(p.y); } }, at);
+    const CAM = "#s6-cam", BG = "#s6-bg";
+    function punch(sel, t, from) {
+      tl.fromTo(sel + " .tbi", { opacity: 0, scale: from || 1.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2.2)" }, t);
     }
+    function cut(sel, t) { tl.set(sel + " .tbi", { opacity: 0 }, t); }
+    function shake(t, amp) {
+      const a = amp || 14;
+      tl.fromTo(CAM, { x: 0, y: 0 }, { x: a, y: -a * 0.6, duration: 0.035, ease: "none", yoyo: true, repeat: 5 }, t);
+      tl.set(CAM, { x: 0, y: 0 }, t + 0.22);
+    }
+    function bg(color, t) { tl.set(BG, { backgroundColor: color }, t); }
+    function counter(sel, from, to, t, dur, fmt) {
+      const el = document.querySelector(sel); const c = { v: from };
+      tl.fromTo(c, { v: from }, { v: to, duration: dur, ease: "power2.out", onUpdate: () => { el.textContent = fmt(c.v); } }, t);
+    }
+    const eur = (v) => String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " €";
 
-    tl.fromTo("#s6-in", { opacity: 0, scale: 1.2, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 0);
-    tl.fromTo("#s6-av", { scale: 1.12, rotation: -3 }, { scale: 1.0, rotation: 0, duration: 4.9, ease: "power1.out" }, 0);
-    tl.fromTo("#s6-markin", { opacity: 0, clipPath: "inset(0% 100% 0% 0%)" }, { opacity: 1, clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power3.out" }, 0.1);
-    tl.fromTo("#s6-btn", { opacity: 0, y: 80, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "expo.out" }, 0.4);
-    // tap on "Scopri" abs 23.36 -> 0.66
-    tl.to("#s6-btn", { scale: 0.94, duration: 0.08, ease: "power2.in" }, 0.9);
-    tl.to("#s6-btn", { scale: 1, duration: 0.3, ease: "back.out(2)" }, 0.98);
+
+    bg("#E37739", 0);
+    tl.fromTo("#f-prof", { y: -1200, rotation: -25, rotationY: -40, scale: 1.2 }, { y: 0, rotation: -4, rotationY: -20, scale: 0.86, duration: 0.4, ease: "back.out(1.2)" }, 0.0);
+    tl.to("#f-prof", { rotationY: 22, rotation: 2, duration: 3.8, ease: "power1.inOut" }, 0.4);
+    shake(0.38, 14);
+    punch("#f-t1", 0.01); cut("#f-t1", 1.44);
+    // "Scopri di più" button pops and gets tapped
+    tl.fromTo("#f-btn1", { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 0.51);
+    tl.to("#f-btn1", { scale: 0.9, duration: 0.07, ease: "power2.in" }, 0.85);
+    tl.to("#f-btn1", { scale: 1.0, duration: 0.25, ease: "back.out(2.5)" }, 0.92);
+    tl.to("#f-btn1", { opacity: 0, scale: 0.6, y: -60, duration: 0.18, ease: "power3.in" }, 1.36);
+    punch("#f-t3", 1.44, 1.6);
+    tl.fromTo("#f-btn", { opacity: 0, y: 140 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 1.6);
+    tl.fromTo("#f-mark", { opacity: 0, clipPath: "inset(0% 100% 0% 0%)" }, { opacity: 1, clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power3.out" }, 1.85);
+
     window.__timelines["s6"] = tl;
   </script>
 </template>

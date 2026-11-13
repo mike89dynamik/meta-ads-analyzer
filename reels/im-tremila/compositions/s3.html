@@ -1,54 +1,73 @@
 <template>
   <style>
-    #root { position: absolute; inset: 0; background: transparent; font-family: "Inter", sans-serif; overflow: hidden; }
-    .plate { position: absolute; inset: 0; overflow: hidden; }
-    .plate img, .plate video { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; object-fit: cover; }
-    .scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,8,6,0.62) 0%, rgba(10,8,6,0.0) 34%, rgba(10,8,6,0.0) 66%, rgba(10,8,6,0.55) 100%); }
-    .t { position: absolute; left: 40px; right: 40px; text-align: center; color: #fff; font-weight: 900; letter-spacing: -0.035em; line-height: 0.95;
-         text-transform: uppercase; text-shadow: 0 6px 30px rgba(0,0,0,0.45); }
-    .t em { font-style: normal; color: #e37739; }
+    #root { position: absolute; inset: 0; background: transparent; overflow: hidden; font-family: "Archivo Black", "Inter", sans-serif; }
+    .bg { position: absolute; inset: 0; }
+    .cam { position: absolute; inset: 0; perspective: 1400px; }
+    .card { position: absolute; filter: drop-shadow(0 26px 28px rgba(0,0,0,0.38)); }
+    .paper { position: absolute; inset: 0; background: #f7f3ea; }
+    .ph { position: absolute; inset: 14px; overflow: hidden; }
+    .ph img, .ph video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+    .tb { position: absolute; left: 30px; right: 30px; text-align: center; line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; z-index: 20; }
+    .tb em { font-style: normal; color: #E37739; }
+    .tbi { display: inline-block; }
+    .tag { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); white-space: nowrap; padding: 10px 22px; border-radius: 14px; background: #15110E; color: #fff; font-size: 34px; }
 
-    #s3-in { position: absolute; inset: 0; }
-    #s3-z { top: 100px; font-size: 240px; letter-spacing: -0.06em; }
-    #s3-zs { top: 330px; font-size: 64px; }
-    #s3-q { top: 100px; font-size: 84px; }
+    .inv { position: absolute; inset: 0; padding: 50px 60px; color: #15110E; font-family: "Inter", sans-serif; }
+    .inv b { display: block; font-size: 34px; letter-spacing: 0.08em; text-transform: uppercase; color: #8a8580; }
+    .inv span { display: block; margin-top: 40px; font-size: 52px; font-weight: 700; }
+    .inv strong { display: block; margin-top: 18px; font-size: 120px; font-weight: 900; letter-spacing: -0.04em; color: #C8321E; }
 
   </style>
   <div id="root" data-composition-id="s3" data-width="1080" data-height="1350">
-    <div id="s3-wrap" style="position:absolute;inset:0" data-layout-allow-overflow data-layout-allow-overlap>
-      <div id="s3-in">
-        <div class="plate"><div id="s3-av"><video id="s3-vid" class="clip" src="assets/video/v3.mp4" data-start="0" data-duration="3.6" muted playsinline></video></div><div class="scrim"></div></div>
-        <div id="s3-z" class="t"><em>0 €</em></div>
-        <div id="s3-zs" class="t">di canone mensile</div>
-        <div id="s3-q" class="t">Paghi solo<br /><em>appuntamenti</em><br />qualificati</div>
+    <div id="s3-bg" class="bg"></div>
+    <div id="s3-cam" class="cam" data-layout-allow-overflow data-layout-allow-overlap>
+      <div id="c-invL" class="card half" style="left:180px;top:600px;width:720px;height:440px"><div class="paper" style="clip-path:polygon(0% 0%, 52% 0%, 47% 18%, 53% 34%, 46% 52%, 52% 70%, 47% 86%, 51% 100%, 0% 100%)"><div class="inv"><b>Fattura agenzia</b><span>Canone mensile</span><strong>2.000 €</strong></div></div></div>
+      <div id="c-invR" class="card half" style="left:180px;top:600px;width:720px;height:440px"><div class="paper" style="clip-path:polygon(52% 0%, 100% 0%, 100% 100%, 51% 100%, 47% 86%, 52% 70%, 46% 52%, 53% 34%, 47% 18%)"><div class="inv"><b>Fattura agenzia</b><span>Canone mensile</span><strong>2.000 €</strong></div></div></div>
+      <div id="c-pos" class="card" style="left:230px;top:440px;width:620px;height:860px">
+        <div class="paper" style="clip-path:polygon(0.00% 0.02%, 8.33% 0.18%, 16.67% 0.63%, 25.00% 1.09%, 33.33% 0.22%, 41.67% 0.18%, 50.00% 0.37%, 58.33% 1.21%, 66.67% 0.24%, 75.00% 1.19%, 83.33% 1.06%, 91.67% 0.22%, 100.00% 0.86%, 99.28% 8.33%, 99.34% 16.67%, 98.41% 25.00%, 99.85% 33.33%, 99.97% 41.67%, 98.50% 50.00%, 99.36% 58.33%, 99.68% 66.67%, 99.47% 75.00%, 99.42% 83.33%, 98.47% 91.67%, 99.66% 100.00%, 91.67% 99.65%, 83.33% 99.06%, 75.00% 99.12%, 66.67% 98.47%, 58.33% 98.66%, 50.00% 99.43%, 41.67% 99.67%, 33.33% 98.66%, 25.00% 98.42%, 16.67% 99.95%, 8.33% 98.82%, 0.00% 98.61%, 1.04% 91.67%, 0.35% 83.33%, 1.27% 75.00%, 1.17% 66.67%, 0.31% 58.33%, 1.03% 50.00%, 0.35% 41.67%, 0.07% 33.33%, 0.54% 25.00%, 0.53% 16.67%, 0.63% 8.33%)"><div class="ph" style="clip-path:polygon(0.00% 0.42%, 8.33% 0.22%, 16.67% 0.59%, 25.00% 0.64%, 33.33% 0.52%, 41.67% 0.02%, 50.00% 0.19%, 58.33% 0.27%, 66.67% 0.78%, 75.00% 0.53%, 83.33% 0.42%, 91.67% 0.54%, 100.00% 0.08%, 99.45% 8.33%, 99.48% 16.67%, 99.83% 25.00%, 99.71% 33.33%, 99.67% 41.67%, 99.24% 50.00%, 99.70% 58.33%, 99.98% 66.67%, 99.35% 75.00%, 99.31% 83.33%, 99.73% 91.67%, 99.42% 100.00%, 91.67% 99.22%, 83.33% 99.69%, 75.00% 99.47%, 66.67% 99.56%, 58.33% 99.56%, 50.00% 99.57%, 41.67% 99.32%, 33.33% 99.26%, 25.00% 99.26%, 16.67% 99.90%, 8.33% 99.32%, 0.00% 99.91%, 0.12% 91.67%, 0.12% 83.33%, 0.07% 75.00%, 0.35% 66.67%, 0.08% 58.33%, 0.35% 50.00%, 0.71% 41.67%, 0.33% 33.33%, 0.06% 25.00%, 0.61% 16.67%, 0.42% 8.33%)"><video id="c-v3" class="clip" src="assets/video/v3.mp4" data-start="1.5" data-duration="1.85" muted playsinline></video></div></div>
       </div>
+      <div id="c-t1" class="tb" style="top:120px;font-size:300px;color:#E37739"><span class="tbi">0 €</span></div>
+      <div id="c-t2" class="tb" style="top:430px;font-size:94px;color:#FFFFFF"><span class="tbi">canone mensile</span></div>
+      <div id="c-t3" class="tb" style="top:160px;font-size:132px;color:#15110E"><span class="tbi">Paghi solo</span></div>
+      <div id="c-t4" class="tb" style="top:160px;font-size:110px;color:#E37739"><span class="tbi">appuntamenti</span></div>
+      <div id="c-t5" class="tb" style="top:160px;font-size:120px;color:#15110E"><span class="tbi">qualificati</span></div>
     </div>
   </div>
   <script>
-    function tearPoly(y) {
-      const n = 16; let s = "polygon(0% 100%, 100% 100%";
-      for (let i = n; i >= 0; i--) {
-        const x = (i / n) * 100;
-        const yy = y + (i % 2 ? 2.4 : -2.0) + (((i * 37) % 5) - 2) * 0.5;
-        s += `, ${x.toFixed(2)}% ${yy.toFixed(2)}%`;
-      }
-      return s + ")";
-    }
     const tl = gsap.timeline({ paused: true });
-    function tearTo(sel, at, dur) {
-      const el = document.querySelector(sel); const p = { y: 112 };
-      el.style.clipPath = tearPoly(112);
-      tl.fromTo(p, { y: 112 }, { y: -8, duration: dur, ease: "power3.inOut", onUpdate: () => { el.style.clipPath = tearPoly(p.y); } }, at);
+    const CAM = "#s3-cam", BG = "#s3-bg";
+    function punch(sel, t, from) {
+      tl.fromTo(sel + " .tbi", { opacity: 0, scale: from || 1.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2.2)" }, t);
     }
+    function cut(sel, t) { tl.set(sel + " .tbi", { opacity: 0 }, t); }
+    function shake(t, amp) {
+      const a = amp || 14;
+      tl.fromTo(CAM, { x: 0, y: 0 }, { x: a, y: -a * 0.6, duration: 0.035, ease: "none", yoyo: true, repeat: 5 }, t);
+      tl.set(CAM, { x: 0, y: 0 }, t + 0.22);
+    }
+    function bg(color, t) { tl.set(BG, { backgroundColor: color }, t); }
+    function counter(sel, from, to, t, dur, fmt) {
+      const el = document.querySelector(sel); const c = { v: from };
+      tl.fromTo(c, { v: from }, { v: to, duration: dur, ease: "power2.out", onUpdate: () => { el.textContent = fmt(c.v); } }, t);
+    }
+    const eur = (v) => String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " €";
 
-    // whip in from the right
-    tl.fromTo("#s3-in", { x: 1080, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.35, ease: "expo.out" }, 0);
-    tl.fromTo("#s3-av", { scale: 1.0 }, { scale: 1.06, duration: 3.6, ease: "none" }, 0);
-    tl.fromTo("#s3-z", { opacity: 0, scale: 2.4, filter: "blur(14px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "back.out(1.5)" }, 0.2);
-    tl.fromTo("#s3-zs", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out" }, 0.55);
-    tl.to("#s3-z, #s3-zs", { opacity: 0, filter: "blur(10px)", duration: 0.15, ease: "power3.in" }, 1.7);
-    // "Paghi" abs 13.20 -> 1.80
-    tl.fromTo("#s3-q", { opacity: 0, filter: "blur(10px)", scale: 1.15 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.25, ease: "expo.out" }, 1.8);
+
+    bg("#15110E", 0); bg("#F4F1EC", 1.55);
+    tl.fromTo("#c-invL, #c-invR", { y: 1000, rotation: 10 }, { y: 0, rotation: -3, duration: 0.22, ease: "expo.out" }, 0.0);
+    punch("#c-t1", 0.11, 2.6); shake(0.15, 18);
+    punch("#c-t2", 0.41, 1.5);
+    // the fixed fee is torn in half
+    tl.to("#c-invL", { x: -1000, y: 700, rotation: -40, duration: 0.5, ease: "power2.in" }, 0.6);
+    tl.to("#c-invR", { x: 1000, y: 750, rotation: 44, duration: 0.5, ease: "power2.in" }, 0.6);
+    cut("#c-t1", 1.55); cut("#c-t2", 1.55);
+    // the installer: only qualified appointments
+    tl.fromTo("#c-pos", { y: 1200, rotation: -12 }, { y: 0, rotation: -3, duration: 0.35, ease: "expo.out" }, 1.5);
+    tl.to("#c-pos", { rotation: 1, duration: 1.4, ease: "none" }, 1.85);
+    punch("#c-t3", 1.55); cut("#c-t3", 2.18);
+    punch("#c-t4", 2.18); cut("#c-t4", 2.69); shake(2.2, 10);
+    punch("#c-t5", 2.69);
+
     window.__timelines["s3"] = tl;
   </script>
 </template>
