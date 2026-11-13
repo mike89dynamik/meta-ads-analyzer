@@ -1,0 +1,43 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #fff; font-family: "Inter", sans-serif; overflow: hidden; }
+    #s5-cam { position: absolute; inset: 0; perspective: 1400px; }
+    #s5-flood { position: absolute; inset: 0; background: #e37739; }
+    #s5-head { position: absolute; left: 0; right: 0; top: 80px; text-align: center; color: #fff; font-weight: 900; font-size: 64px; letter-spacing: -0.03em; text-transform: uppercase; }
+    #s5-num { position: absolute; left: 0; right: 0; top: 160px; text-align: center; color: #fff; font-weight: 900; font-size: 300px; letter-spacing: -0.06em; line-height: 1; }
+    #s5-num .le { font-size: 180px; vertical-align: 0.2em; margin-right: 16px; }
+    #s5-plane { position: absolute; left: 170px; top: 520px; width: 740px; height: 460px; transform-style: preserve-3d; }
+    #s5-slab { position: absolute; inset: 0; border-radius: 30px; background: #fff; box-shadow: 0 60px 80px rgba(80, 30, 0, 0.35); transform-style: preserve-3d; }
+    #s5-slab span { position: absolute; left: 40px; top: 40px; font-size: 54px; font-weight: 900; letter-spacing: -0.03em; color: #1f1b18; text-transform: uppercase; }
+    #s5-slice { position: absolute; right: 0; top: 0; bottom: 0; width: 26px; border-radius: 0 30px 30px 0; background: #1f1b18; }
+    #s5-note { position: absolute; left: 0; right: 0; top: 1050px; text-align: center; color: #fff; font-size: 34px; font-weight: 700; }
+  </style>
+  <div id="root" data-composition-id="s5" data-width="1080" data-height="1350">
+    <div id="s5-cam" class="clip" data-start="0" data-duration="3.5" data-layout-allow-overflow data-layout-allow-overlap>
+      <div id="s5-flood"></div>
+      <div id="s5-head">Il marketing pesa</div>
+      <div id="s5-num"><div id="s5-numin"><span class="le">≤</span><span id="s5-val">0,0</span>%</div></div>
+      <div id="s5-plane"><div id="s5-slab" data-layout-ignore><span>Il tuo fatturato</span><i id="s5-slice"></i></div></div>
+      <div id="s5-note">*pubblicità + nostro compenso</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s5-flood", { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s5-head", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power2.out" }, 0.22);
+    // isometric revenue slab swings in from flat-on to the floor
+    tl.fromTo("#s5-plane", { rotationX: 0, rotationZ: 0, y: 400, opacity: 0 }, { rotationX: 52, rotationZ: -12, y: 0, opacity: 1, duration: 0.7, ease: "expo.out" }, 0.25);
+    // the marketing slice lifts off the slab on "3,5%" (abs 18.86 -> 1.71)
+    tl.fromTo("#s5-slice", { z: 0, opacity: 0.0 }, { z: 70, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 1.66);
+    tl.fromTo("#s5-numin", { opacity: 0, scale: 2.4, filter: "blur(14px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "back.out(1.5)" }, 1.66);
+    const val = document.querySelector("#s5-val");
+    const c = { v: 0 };
+    tl.fromTo(c, { v: 0 }, { v: 3.5, duration: 0.45, ease: "power2.out", onUpdate: () => { val.textContent = c.v.toFixed(1).replace(".", ","); } }, 1.66);
+    tl.fromTo("#s5-note", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" }, 2.0);
+    // slow orbit of the plane
+    tl.to("#s5-plane", { rotationZ: -20, duration: 2.3, ease: "none" }, 0.95);
+    // whip up out
+    tl.to("#s5-num, #s5-plane, #s5-head, #s5-note", { y: "-=900", filter: "blur(16px)", duration: 0.25, ease: "power3.in" }, 3.27);
+    window.__timelines["s5"] = tl;
+  </script>
+</template>

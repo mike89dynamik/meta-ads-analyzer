@@ -1,0 +1,48 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #fff; font-family: "Inter", sans-serif; overflow: hidden; }
+    #s2-cam { position: absolute; inset: 0; perspective: 1400px; }
+    #s2-head { position: absolute; left: 70px; right: 70px; top: 70px; color: #1f1b18; font-weight: 900; font-size: 92px;
+      letter-spacing: -0.035em; line-height: 0.95; text-transform: uppercase; }
+    #s2-head em { font-style: normal; color: #c8321e; }
+    #s2-stage { position: absolute; left: 0; right: 0; top: 330px; height: 760px; transform-style: preserve-3d; }
+    .s2-card { position: absolute; left: 120px; width: 840px; height: 200px; border-radius: 34px; background: #fff;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.16), 0 0 0 2px #eee; padding: 30px 36px; display: flex; align-items: center; gap: 28px; }
+    .s2-x { flex: 0 0 104px; height: 104px; border-radius: 28px; background: #c8321e; display: flex; align-items: center; justify-content: center; }
+    .s2-card div { font-size: 30px; font-weight: 700; color: #8a8580; letter-spacing: 0.04em; text-transform: uppercase; }
+    .s2-card div b { display: block; margin-top: 6px; font-size: 56px; font-weight: 900; letter-spacing: -0.03em; text-transform: none; color: #1f1b18; }
+  </style>
+  <div id="root" data-composition-id="s2" data-width="1080" data-height="1350">
+    <div id="s2-cam" class="clip" data-start="0" data-duration="4.55" data-layout-allow-overflow data-layout-allow-overlap>
+      <div id="s2-head"><span id="s2-headin">Appuntamenti<br /><em>da buttare</em></span></div>
+      <div id="s2-stage">
+        <div id="s2-c1" class="s2-card"><span class="s2-x"><svg width="60" height="60" viewBox="0 0 60 60"><path d="M14 14 L46 46 M46 14 L14 46" stroke="#fff" stroke-width="9" stroke-linecap="round"/></svg></span><div>Appuntamento #1<b>Solo 2 finestre</b></div></div>
+        <div id="s2-c2" class="s2-card"><span class="s2-x"><svg width="60" height="60" viewBox="0 0 60 60"><path d="M14 14 L46 46 M46 14 L14 46" stroke="#fff" stroke-width="9" stroke-linecap="round"/></svg></span><div>Appuntamento #2<b>Casa in affitto</b></div></div>
+        <div id="s2-c3" class="s2-card"><span class="s2-x"><svg width="60" height="60" viewBox="0 0 60 60"><path d="M14 14 L46 46 M46 14 L14 46" stroke="#fff" stroke-width="9" stroke-linecap="round"/></svg></span><div>Appuntamento #3<b>Manca il marito</b></div></div>
+        <div id="s2-c4" class="s2-card"><span class="s2-x"><svg width="60" height="60" viewBox="0 0 60 60"><path d="M14 14 L46 46 M46 14 L14 46" stroke="#fff" stroke-width="9" stroke-linecap="round"/></svg></span><div>Appuntamento #4<b>Lavori tra 2 anni</b></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // arrives out of the phone zoom: headline sharpens
+    tl.fromTo("#s2-headin", { opacity: 0, scale: 1.3, filter: "blur(12px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out", transformOrigin: "0% 0%" }, 0.0);
+    // each objection flies in from deep Z on its word; earlier cards recede (depth stack)
+    const T = [0.05, 1.27, 2.27, 3.4];      // abs 4.45 5.67 6.67 7.80
+    const Y = [0, 150, 300, 450];
+    const cards = ["#s2-c1", "#s2-c2", "#s2-c3", "#s2-c4"];
+    cards.forEach((c, i) => {
+      tl.fromTo(c, { opacity: 0, z: -900, y: Y[i] + 120, rotationX: 28, rotationY: i % 2 ? 14 : -14, filter: "blur(14px)" },
+        { opacity: 1, z: 0, y: Y[i], rotationX: 8, rotationY: i % 2 ? -5 : 5, filter: "blur(0px)", duration: 0.42, ease: "expo.out" }, T[i]);
+      tl.fromTo(`${c} .s2-x`, { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.25, ease: "back.out(2)" }, T[i] + 0.22);
+      for (let j = 0; j < i; j++) {
+        tl.to(cards[j], { z: -140 * (i - j), filter: `blur(${2.2 * (i - j)}px)`, opacity: 1 - 0.18 * (i - j), duration: 0.4, ease: "power2.out" }, T[i]);
+      }
+    });
+    // continuous camera drift
+    tl.fromTo("#s2-stage", { rotationY: 6 }, { rotationY: -6, duration: 4.5, ease: "none" }, 0);
+    // whip out
+    tl.to("#s2-stage, #s2-head", { x: -1200, filter: "blur(16px)", duration: 0.25, ease: "power3.in" }, 4.3);
+    window.__timelines["s2"] = tl;
+  </script>
+</template>

@@ -1,0 +1,55 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #e37739; font-family: "Inter", sans-serif; overflow: hidden; }
+    #s4-cam { position: absolute; inset: 0; perspective: 1500px; }
+    #s4-flood { position: absolute; inset: 0; background: #fff; }
+    #s4-head { position: absolute; left: 70px; right: 70px; top: 70px; color: #1f1b18; font-weight: 900; font-size: 92px;
+      letter-spacing: -0.035em; line-height: 0.95; text-transform: uppercase; }
+    #s4-head em { font-style: normal; color: #e37739; }
+    #s4-card { position: absolute; left: 110px; top: 340px; width: 860px; height: 700px; border-radius: 40px; background: #fff;
+      box-shadow: 0 50px 100px rgba(0, 0, 0, 0.18), 0 0 0 2px #eee; padding: 40px 46px; transform-style: preserve-3d; }
+    #s4-card h3 { font-size: 28px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8a8580; margin-bottom: 18px; }
+    .s4-row { position: relative; display: flex; align-items: center; gap: 28px; padding: 26px 0; border-top: 2px solid #eee; font-size: 48px; font-weight: 800; color: #1f1b18; }
+    .s4-box { position: relative; flex: 0 0 76px; height: 76px; border-radius: 20px; border: 5px solid #d6d1cc; }
+    .s4-ok, .s4-no { position: absolute; inset: -5px; border-radius: 20px; display: flex; align-items: center; justify-content: center; }
+    .s4-ok { background: #e37739; }
+    .s4-no { background: #c8321e; }
+    #s4-stamp { position: absolute; left: 300px; top: 800px; padding: 18px 34px; border-radius: 26px; background: #c8321e; color: #fff;
+      font-weight: 900; font-size: 74px; letter-spacing: -0.02em; line-height: 0.95; text-align: center; box-shadow: 0 20px 50px rgba(200, 50, 30, 0.35); }
+    #s4-stamp small { display: block; font-size: 40px; letter-spacing: 0.02em; margin-top: 8px; }
+  </style>
+  <div id="root" data-composition-id="s4" data-width="1080" data-height="1350">
+    <div id="s4-cam" class="clip" data-start="0" data-duration="3.55" data-layout-allow-overflow data-layout-allow-overlap>
+      <div id="s4-flood"></div>
+      <div id="s4-head"><span id="s4-headin">Paghi solo<br /><em>se è qualificato</em></span></div>
+      <div id="s4-card">
+        <h3>I tuoi parametri</h3>
+        <div class="s4-row"><span class="s4-box"><i class="s4-ok"><svg width="46" height="46" viewBox="0 0 56 56"><path d="M12 29 L24 41 L45 16" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span>Almeno 4 infissi</div>
+        <div class="s4-row"><span class="s4-box"><i class="s4-ok"><svg width="46" height="46" viewBox="0 0 56 56"><path d="M12 29 L24 41 L45 16" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span>Proprietari di casa</div>
+        <div class="s4-row" id="s4-r3"><span class="s4-box"><i class="s4-ok"><svg width="46" height="46" viewBox="0 0 56 56"><path d="M12 29 L24 41 L45 16" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="s4-no" id="s4-no"><svg width="44" height="44" viewBox="0 0 60 60"><path d="M15 15 L45 45 M45 15 L15 45" stroke="#fff" stroke-width="9" stroke-linecap="round"/></svg></i></span><span id="s4-r3t">Entrambi i decisori</span></div>
+        <div class="s4-row"><span class="s4-box"><i class="s4-ok"><svg width="46" height="46" viewBox="0 0 56 56"><path d="M12 29 L24 41 L45 16" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span>Lavori entro 3 mesi</div>
+      </div>
+      <div id="s4-stamp" data-layout-allow-occlusion>NON LO PAGHI<small>0 € per questo appuntamento</small></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s4-flood", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s4-headin", { opacity: 0, scale: 1.3, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.28, ease: "expo.out", transformOrigin: "0% 0%" }, 0.15);
+    // the card rises out of the floor in perspective and settles
+    tl.fromTo("#s4-card", { y: 500, rotationX: 55, rotationZ: -10, opacity: 0 }, { y: 0, rotationX: 12, rotationZ: -3, opacity: 1, duration: 0.55, ease: "expo.out" }, 0.1);
+    tl.fromTo("#s4-card", { rotationY: 6 }, { rotationY: -6, duration: 3.4, ease: "none" }, 0.1);
+    tl.fromTo(".s4-row", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.2, stagger: 0.06, ease: "power2.out" }, 0.3);
+    // ticks on "rispettano i tuoi parametri" (abs 14.32-15.04 -> 0.72-1.44)
+    [0.72, 0.94, 1.16, 1.38].forEach((t, i) => {
+      tl.fromTo(`.s4-row:nth-of-type(${i + 1}) .s4-ok`, { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, t);
+    });
+    // "Se ne manca uno" (abs 15.65 -> 2.05): one parameter fails
+    tl.fromTo("#s4-no", { opacity: 0, scale: 0.3, rotation: -90 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.22, ease: "back.out(2)" }, 2.05);
+    tl.fromTo("#s4-r3t", { color: "#1f1b18" }, { color: "#c8321e", duration: 0.15 }, 2.05);
+    tl.fromTo("#s4-r3", { x: 0 }, { x: 14, duration: 0.05, yoyo: true, repeat: 3, ease: "none" }, 2.1);
+    // "non lo paghi" (abs 16.50 -> 2.90)
+    tl.fromTo("#s4-stamp", { opacity: 0, scale: 2.4, rotation: -14, z: 200 }, { opacity: 1, scale: 1, rotation: -6, z: 0, duration: 0.22, ease: "back.out(1.6)" }, 2.88);
+    window.__timelines["s4"] = tl;
+  </script>
+</template>

@@ -1,0 +1,65 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #fff; font-family: "Inter", sans-serif; overflow: hidden; }
+    #s3-cam { position: absolute; inset: 0; perspective: 1500px; }
+    #s3-cal { position: absolute; left: 110px; top: 310px; width: 860px; height: 740px; border-radius: 40px; background: #fff;
+      box-shadow: 0 40px 90px rgba(0, 0, 0, 0.18), 0 0 0 2px #eee; padding: 40px 46px; transform-style: preserve-3d; }
+    #s3-cal h3 { font-size: 28px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8a8580; }
+    #s3-cal h2 { font-size: 60px; font-weight: 900; letter-spacing: -0.03em; color: #1f1b18; margin: 6px 0 26px; }
+    .s3-slot { display: flex; gap: 24px; align-items: center; padding: 20px 0; border-top: 2px solid #eee; font-size: 38px; font-weight: 700; color: #1f1b18; }
+    .s3-slot span { flex: 0 0 120px; color: #8a8580; font-weight: 400; }
+    .s3-slot i { margin-left: auto; font-style: normal; font-size: 30px; font-weight: 900; color: #c8321e; }
+    #s3-lost { position: absolute; left: 150px; top: 380px; padding: 18px 34px; border: 12px solid #c8321e; border-radius: 24px; background: rgba(255,255,255,0.92);
+      color: #c8321e; font-weight: 900; font-size: 84px; letter-spacing: -0.02em; line-height: 0.95; text-align: center; }
+    #s3-flood { position: absolute; inset: 0; background: #e37739; }
+    #s3-head { position: absolute; left: 70px; right: 70px; top: 70px; color: #1f1b18; font-weight: 900; font-size: 92px; letter-spacing: -0.035em; line-height: 0.95; text-transform: uppercase; }
+    #s3-head em { font-style: normal; color: #c8321e; }
+    #s3-old { position: absolute; left: 0; right: 0; top: 380px; text-align: center; color: #1f1b18; font-weight: 900; font-size: 220px; letter-spacing: -0.05em; line-height: 1; }
+    #s3-old i { position: absolute; left: 170px; right: 170px; top: 50%; height: 22px; margin-top: -11px; border-radius: 11px; background: #fff; transform-origin: 0% 50%; }
+    #s3-zero { position: absolute; left: 0; right: 0; top: 300px; text-align: center; color: #fff; font-weight: 900; font-size: 380px; letter-spacing: -0.06em; line-height: 1; }
+    #s3-label { position: absolute; left: 0; right: 0; top: 700px; text-align: center; color: #1f1b18; font-weight: 900; font-size: 84px; letter-spacing: -0.03em; text-transform: uppercase; }
+    #s3-pre { position: absolute; left: 0; right: 0; top: 160px; text-align: center; color: #fff; font-weight: 900; font-size: 64px; letter-spacing: -0.03em; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s3" data-width="1080" data-height="1350">
+    <div id="s3-cam" class="clip" data-start="0" data-duration="4.65" data-layout-allow-overflow data-layout-allow-overlap>
+      <div id="s3-head"><span id="s3-headin">E il tuo<br /><em>commerciale?</em></span></div>
+      <div id="s3-cal">
+        <h3>Agenda commerciale</h3>
+        <h2>Martedì</h2>
+        <div class="s3-slot"><span>09:00</span>Fam. Rossi<i>2 finestre</i></div>
+        <div class="s3-slot"><span>11:30</span>Fam. Verdi<i>in affitto</i></div>
+        <div class="s3-slot"><span>15:00</span>Fam. Bianchi<i>manca il marito</i></div>
+        <div class="s3-slot"><span>17:30</span>Fam. Neri<i>tra 2 anni</i></div>
+        <div id="s3-lost" data-layout-allow-occlusion>GIORNATA<br />PERSA</div>
+      </div>
+      <div id="s3-flood"></div>
+      <div id="s3-pre">Con noi</div>
+      <div id="s3-old"><span id="s3-oldin">2.000 €</span><i id="s3-strike"></i></div>
+      <div id="s3-zero">0 €</div>
+      <div id="s3-label">di fisso mensile</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // whip in from the right (matches s2's whip out)
+    tl.fromTo("#s3-cal", { x: 1100, rotationY: -30, rotationX: 10, filter: "blur(16px)" }, { x: 0, rotationY: -10, rotationX: 6, filter: "blur(0px)", duration: 0.35, ease: "expo.out" }, 0);
+    tl.fromTo("#s3-cal", { rotationZ: 0 }, { rotationZ: -2, duration: 2.0, ease: "none" }, 0.35);
+    tl.fromTo("#s3-headin", { opacity: 0, x: 120, filter: "blur(12px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 0.05);
+    tl.to("#s3-head", { opacity: 0, filter: "blur(12px)", duration: 0.2, ease: "power3.in" }, 1.95);
+    tl.fromTo(".s3-slot", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.2, stagger: 0.07, ease: "power2.out" }, 0.15);
+    // "giornata" (abs 10.33 -> 1.38): stamp
+    tl.fromTo("#s3-lost", { opacity: 0, scale: 2.3, rotation: -14 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.2, ease: "back.out(1.6)" }, 1.36);
+    // "Con noi" (abs 10.98 -> 2.03): camera zooms through the card into the orange world
+    tl.to("#s3-cal", { scale: 4, z: 300, rotationY: 0, rotationX: 0, filter: "blur(18px)", opacity: 0, duration: 0.38, ease: "power3.in" }, 1.95);
+    tl.fromTo("#s3-flood", { clipPath: "circle(0% at 50% 50%)" }, { clipPath: "circle(120% at 50% 50%)", duration: 0.4, ease: "power2.inOut" }, 2.05);
+    tl.fromTo("#s3-pre", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power2.out" }, 2.1);
+    tl.fromTo("#s3-oldin", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 2.2);
+    tl.fromTo("#s3-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.22, ease: "power3.out" }, 2.8);
+    tl.to("#s3-old", { opacity: 0, scale: 0.5, filter: "blur(14px)", duration: 0.2, ease: "power3.in" }, 3.55);
+    // "fisso" (abs 11.73 -> 2.78) label; "zero" (abs 12.65 -> 3.70) the number slams
+    tl.fromTo("#s3-label", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out" }, 2.78);
+    tl.fromTo("#s3-zero", { opacity: 0, scale: 3, z: 300, filter: "blur(16px)" }, { opacity: 1, scale: 1, z: 0, filter: "blur(0px)", duration: 0.32, ease: "back.out(1.5)" }, 3.68);
+    // hand-off: colour flood to white comes from s4
+    window.__timelines["s3"] = tl;
+  </script>
+</template>

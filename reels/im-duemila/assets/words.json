@@ -1,0 +1,541 @@
+[
+{
+"id": "w0",
+"line": 0,
+"text": "Serramentista,",
+"start": 0.1,
+"end": 0.866
+},
+{
+"id": "w1",
+"line": 0,
+"text": "paghi",
+"start": 1.049,
+"end": 1.331
+},
+{
+"id": "w2",
+"line": 0,
+"text": "duemila",
+"start": 1.331,
+"end": 1.699
+},
+{
+"id": "w3",
+"line": 0,
+"text": "euro",
+"start": 1.699,
+"end": 1.937
+},
+{
+"id": "w4",
+"line": 0,
+"text": "al",
+"start": 1.937,
+"end": 2.089
+},
+{
+"id": "w5",
+"line": 0,
+"text": "mese…",
+"start": 2.089,
+"end": 2.327
+},
+{
+"id": "w6",
+"line": 0,
+"text": "anche",
+"start": 2.572,
+"end": 2.807
+},
+{
+"id": "w7",
+"line": 0,
+"text": "quando",
+"start": 2.807,
+"end": 3.078
+},
+{
+"id": "w8",
+"line": 0,
+"text": "gli",
+"start": 3.078,
+"end": 3.241
+},
+{
+"id": "w9",
+"line": 0,
+"text": "appuntamenti",
+"start": 3.241,
+"end": 3.729
+},
+{
+"id": "w10",
+"line": 0,
+"text": "sono",
+"start": 3.729,
+"end": 3.928
+},
+{
+"id": "w11",
+"line": 0,
+"text": "da",
+"start": 3.928,
+"end": 4.055
+},
+{
+"id": "w12",
+"line": 0,
+"text": "buttare?",
+"start": 4.055,
+"end": 4.362
+},
+{
+"id": "w13",
+"line": 1,
+"text": "Solo",
+"start": 4.45,
+"end": 4.722
+},
+{
+"id": "w14",
+"line": 1,
+"text": "due",
+"start": 4.722,
+"end": 4.945
+},
+{
+"id": "w15",
+"line": 1,
+"text": "finestre.",
+"start": 4.945,
+"end": 5.416
+},
+{
+"id": "w16",
+"line": 1,
+"text": "Casa",
+"start": 5.673,
+"end": 5.908
+},
+{
+"id": "w17",
+"line": 1,
+"text": "in",
+"start": 5.908,
+"end": 6.058
+},
+{
+"id": "w18",
+"line": 1,
+"text": "affitto.",
+"start": 6.058,
+"end": 6.422
+},
+{
+"id": "w19",
+"line": 1,
+"text": "Il",
+"start": 6.673,
+"end": 6.797
+},
+{
+"id": "w20",
+"line": 1,
+"text": "marito",
+"start": 6.797,
+"end": 7.062
+},
+{
+"id": "w21",
+"line": 1,
+"text": "che",
+"start": 7.062,
+"end": 7.222
+},
+{
+"id": "w22",
+"line": 1,
+"text": "non",
+"start": 7.222,
+"end": 7.381
+},
+{
+"id": "w23",
+"line": 1,
+"text": "c'è.",
+"start": 7.381,
+"end": 7.54
+},
+{
+"id": "w24",
+"line": 1,
+"text": "Lavori",
+"start": 7.796,
+"end": 8.174
+},
+{
+"id": "w25",
+"line": 1,
+"text": "tra",
+"start": 8.174,
+"end": 8.401
+},
+{
+"id": "w26",
+"line": 1,
+"text": "due",
+"start": 8.401,
+"end": 8.628
+},
+{
+"id": "w27",
+"line": 1,
+"text": "anni.",
+"start": 8.628,
+"end": 8.906
+},
+{
+"id": "w28",
+"line": 2,
+"text": "E",
+"start": 9.0,
+"end": 9.104
+},
+{
+"id": "w29",
+"line": 2,
+"text": "il",
+"start": 9.104,
+"end": 9.249
+},
+{
+"id": "w30",
+"line": 2,
+"text": "commerciale",
+"start": 9.249,
+"end": 9.768
+},
+{
+"id": "w31",
+"line": 2,
+"text": "ha",
+"start": 9.768,
+"end": 9.913
+},
+{
+"id": "w32",
+"line": 2,
+"text": "perso",
+"start": 9.913,
+"end": 10.183
+},
+{
+"id": "w33",
+"line": 2,
+"text": "la",
+"start": 10.183,
+"end": 10.329
+},
+{
+"id": "w34",
+"line": 2,
+"text": "giornata.",
+"start": 10.329,
+"end": 10.723
+},
+{
+"id": "w35",
+"line": 2,
+"text": "Con",
+"start": 10.977,
+"end": 11.185
+},
+{
+"id": "w36",
+"line": 2,
+"text": "noi,",
+"start": 11.185,
+"end": 11.393
+},
+{
+"id": "w37",
+"line": 2,
+"text": "il",
+"start": 11.549,
+"end": 11.733
+},
+{
+"id": "w38",
+"line": 2,
+"text": "fisso",
+"start": 11.733,
+"end": 12.075
+},
+{
+"id": "w39",
+"line": 2,
+"text": "mensile",
+"start": 12.075,
+"end": 12.522
+},
+{
+"id": "w40",
+"line": 2,
+"text": "è",
+"start": 12.522,
+"end": 12.653
+},
+{
+"id": "w41",
+"line": 2,
+"text": "zero.",
+"start": 12.653,
+"end": 12.943
+},
+{
+"id": "w42",
+"line": 3,
+"text": "Paghi",
+"start": 13.05,
+"end": 13.289
+},
+{
+"id": "w43",
+"line": 3,
+"text": "solo",
+"start": 13.289,
+"end": 13.492
+},
+{
+"id": "w44",
+"line": 3,
+"text": "gli",
+"start": 13.492,
+"end": 13.658
+},
+{
+"id": "w45",
+"line": 3,
+"text": "appuntamenti",
+"start": 13.658,
+"end": 14.155
+},
+{
+"id": "w46",
+"line": 3,
+"text": "che",
+"start": 14.155,
+"end": 14.321
+},
+{
+"id": "w47",
+"line": 3,
+"text": "rispettano",
+"start": 14.321,
+"end": 14.745
+},
+{
+"id": "w48",
+"line": 3,
+"text": "i",
+"start": 14.745,
+"end": 14.837
+},
+{
+"id": "w49",
+"line": 3,
+"text": "tuoi",
+"start": 14.837,
+"end": 15.039
+},
+{
+"id": "w50",
+"line": 3,
+"text": "parametri.",
+"start": 15.039,
+"end": 15.426
+},
+{
+"id": "w51",
+"line": 3,
+"text": "Se",
+"start": 15.652,
+"end": 15.786
+},
+{
+"id": "w52",
+"line": 3,
+"text": "ne",
+"start": 15.786,
+"end": 15.921
+},
+{
+"id": "w53",
+"line": 3,
+"text": "manca",
+"start": 15.921,
+"end": 16.17
+},
+{
+"id": "w54",
+"line": 3,
+"text": "uno,",
+"start": 16.17,
+"end": 16.343
+},
+{
+"id": "w55",
+"line": 3,
+"text": "non",
+"start": 16.502,
+"end": 16.675
+},
+{
+"id": "w56",
+"line": 3,
+"text": "lo",
+"start": 16.675,
+"end": 16.81
+},
+{
+"id": "w57",
+"line": 3,
+"text": "paghi.",
+"start": 16.81,
+"end": 17.061
+},
+{
+"id": "w58",
+"line": 4,
+"text": "E",
+"start": 17.15,
+"end": 17.251
+},
+{
+"id": "w59",
+"line": 4,
+"text": "il",
+"start": 17.251,
+"end": 17.393
+},
+{
+"id": "w60",
+"line": 4,
+"text": "marketing",
+"start": 17.393,
+"end": 17.819
+},
+{
+"id": "w61",
+"line": 4,
+"text": "pesa",
+"start": 17.913,
+"end": 18.16
+},
+{
+"id": "w62",
+"line": 4,
+"text": "al",
+"start": 18.16,
+"end": 18.318
+},
+{
+"id": "w63",
+"line": 4,
+"text": "massimo",
+"start": 18.318,
+"end": 18.7
+},
+{
+"id": "w64",
+"line": 4,
+"text": "il",
+"start": 18.7,
+"end": 18.858
+},
+{
+"id": "w65",
+"line": 4,
+"text": "3,5%",
+"start": 18.858,
+"end": 19.938
+},
+{
+"id": "w66",
+"line": 4,
+"text": "sul",
+"start": 19.938,
+"end": 20.14
+},
+{
+"id": "w67",
+"line": 4,
+"text": "fatturato.",
+"start": 20.14,
+"end": 20.613
+},
+{
+"id": "w68",
+"line": 5,
+"text": "Clicca",
+"start": 20.7,
+"end": 21.025
+},
+{
+"id": "w69",
+"line": 5,
+"text": "su",
+"start": 21.025,
+"end": 21.177
+},
+{
+"id": "w70",
+"line": 5,
+"text": "Scopri",
+"start": 21.177,
+"end": 21.503
+},
+{
+"id": "w71",
+"line": 5,
+"text": "di",
+"start": 21.503,
+"end": 21.655
+},
+{
+"id": "w72",
+"line": 5,
+"text": "più,",
+"start": 21.655,
+"end": 21.85
+},
+{
+"id": "w73",
+"line": 5,
+"text": "e",
+"start": 22.042,
+"end": 22.143
+},
+{
+"id": "w74",
+"line": 5,
+"text": "prenota",
+"start": 22.143,
+"end": 22.486
+},
+{
+"id": "w75",
+"line": 5,
+"text": "una",
+"start": 22.486,
+"end": 22.667
+},
+{
+"id": "w76",
+"line": 5,
+"text": "chiamata.",
+"start": 22.667,
+"end": 23.05
+}
+]
