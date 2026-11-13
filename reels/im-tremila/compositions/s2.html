@@ -1,0 +1,54 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: transparent; font-family: "Inter", sans-serif; overflow: hidden; }
+    .plate { position: absolute; inset: 0; overflow: hidden; }
+    .plate img, .plate video { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; object-fit: cover; }
+    .scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,8,6,0.62) 0%, rgba(10,8,6,0.0) 34%, rgba(10,8,6,0.0) 66%, rgba(10,8,6,0.55) 100%); }
+    .t { position: absolute; left: 40px; right: 40px; text-align: center; color: #fff; font-weight: 900; letter-spacing: -0.035em; line-height: 0.95;
+         text-transform: uppercase; text-shadow: 0 6px 30px rgba(0,0,0,0.45); }
+    .t em { font-style: normal; color: #e37739; }
+
+    #s2-tear { position: absolute; inset: 0; }
+    #s2-h { top: 90px; font-size: 70px; }
+    #s2-n { top: 330px; font-size: 300px; letter-spacing: -0.06em; }
+    #s2-n .le { font-size: 190px; vertical-align: 0.18em; margin-right: 14px; }
+    #s2-s { top: 640px; font-size: 64px; }
+
+  </style>
+  <div id="root" data-composition-id="s2" data-width="1080" data-height="1350">
+    <div id="s2-wrap" style="position:absolute;inset:0" data-layout-allow-overflow data-layout-allow-overlap>
+      <div id="s2-tear">
+        <div class="plate"><div id="s2-av"><video id="s2-vid" class="clip" src="assets/video/v2.mp4" data-start="0" data-duration="6.6" data-playback-rate="0.75" muted playsinline></video></div><div class="scrim"></div></div>
+        <div id="s2-h" class="t">Il marketing pesa</div>
+        <div id="s2-n" class="t"><span id="s2-nin"><span class="le">≤</span><em>3,5%</em></span></div>
+        <div id="s2-s" class="t">del fatturato</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function tearPoly(y) {
+      const n = 16; let s = "polygon(0% 100%, 100% 100%";
+      for (let i = n; i >= 0; i--) {
+        const x = (i / n) * 100;
+        const yy = y + (i % 2 ? 2.4 : -2.0) + (((i * 37) % 5) - 2) * 0.5;
+        s += `, ${x.toFixed(2)}% ${yy.toFixed(2)}%`;
+      }
+      return s + ")";
+    }
+    const tl = gsap.timeline({ paused: true });
+    function tearTo(sel, at, dur) {
+      const el = document.querySelector(sel); const p = { y: 112 };
+      el.style.clipPath = tearPoly(112);
+      tl.fromTo(p, { y: 112 }, { y: -8, duration: dur, ease: "power3.inOut", onUpdate: () => { el.style.clipPath = tearPoly(p.y); } }, at);
+    }
+
+    tearTo("#s2-tear", 0, 0.45);
+    tl.fromTo("#s2-av", { scale: 1.12 }, { scale: 1.0, duration: 6.6, ease: "none" }, 0);
+    // "marketing" abs 5.73 -> 0.93
+    tl.fromTo("#s2-h", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power2.out" }, 0.9);
+    // "3,5%" abs 9.16 -> 4.36
+    tl.fromTo("#s2-nin", { opacity: 0, scale: 2.6, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "back.out(1.5)" }, 4.33);
+    tl.fromTo("#s2-s", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out" }, 5.8);
+    window.__timelines["s2"] = tl;
+  </script>
+</template>

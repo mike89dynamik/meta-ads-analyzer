@@ -1,0 +1,429 @@
+[
+{
+"id": "w0",
+"line": 0,
+"text": "Investiresti",
+"start": 0.15,
+"end": 0.948
+},
+{
+"id": "w1",
+"line": 0,
+"text": "3.500",
+"start": 0.948,
+"end": 2.011
+},
+{
+"id": "w2",
+"line": 0,
+"text": "euro…",
+"start": 2.011,
+"end": 2.336
+},
+{
+"id": "w3",
+"line": 0,
+"text": "per",
+"start": 2.658,
+"end": 2.869
+},
+{
+"id": "w4",
+"line": 0,
+"text": "chiudere",
+"start": 2.869,
+"end": 3.314
+},
+{
+"id": "w5",
+"line": 0,
+"text": "100.000",
+"start": 3.314,
+"end": 3.736
+},
+{
+"id": "w6",
+"line": 0,
+"text": "euro",
+"start": 3.736,
+"end": 3.993
+},
+{
+"id": "w7",
+"line": 0,
+"text": "di",
+"start": 3.993,
+"end": 4.157
+},
+{
+"id": "w8",
+"line": 0,
+"text": "contratti?",
+"start": 4.157,
+"end": 4.649
+},
+{
+"id": "w9",
+"line": 1,
+"text": "È",
+"start": 4.9,
+"end": 5.009
+},
+{
+"id": "w10",
+"line": 1,
+"text": "quanto",
+"start": 5.009,
+"end": 5.337
+},
+{
+"id": "w11",
+"line": 1,
+"text": "pesa",
+"start": 5.337,
+"end": 5.577
+},
+{
+"id": "w12",
+"line": 1,
+"text": "il",
+"start": 5.577,
+"end": 5.73
+},
+{
+"id": "w13",
+"line": 1,
+"text": "marketing",
+"start": 5.73,
+"end": 6.188
+},
+{
+"id": "w14",
+"line": 1,
+"text": "sui",
+"start": 6.188,
+"end": 6.385
+},
+{
+"id": "w15",
+"line": 1,
+"text": "serramentisti",
+"start": 6.385,
+"end": 7.018
+},
+{
+"id": "w16",
+"line": 1,
+"text": "che",
+"start": 7.018,
+"end": 7.214
+},
+{
+"id": "w17",
+"line": 1,
+"text": "lavorano",
+"start": 7.214,
+"end": 7.629
+},
+{
+"id": "w18",
+"line": 1,
+"text": "con",
+"start": 7.629,
+"end": 7.826
+},
+{
+"id": "w19",
+"line": 1,
+"text": "noi:",
+"start": 7.826,
+"end": 8.022
+},
+{
+"id": "w20",
+"line": 1,
+"text": "al",
+"start": 8.355,
+"end": 8.537
+},
+{
+"id": "w21",
+"line": 1,
+"text": "massimo",
+"start": 8.537,
+"end": 8.978
+},
+{
+"id": "w22",
+"line": 1,
+"text": "il",
+"start": 8.978,
+"end": 9.16
+},
+{
+"id": "w23",
+"line": 1,
+"text": "3,5%",
+"start": 9.16,
+"end": 10.406
+},
+{
+"id": "w24",
+"line": 1,
+"text": "del",
+"start": 10.406,
+"end": 10.64
+},
+{
+"id": "w25",
+"line": 1,
+"text": "fatturato.",
+"start": 10.64,
+"end": 11.185
+},
+{
+"id": "w26",
+"line": 2,
+"text": "Zero",
+"start": 11.6,
+"end": 11.93
+},
+{
+"id": "w27",
+"line": 2,
+"text": "canone",
+"start": 11.93,
+"end": 12.381
+},
+{
+"id": "w28",
+"line": 2,
+"text": "mensile.",
+"start": 12.381,
+"end": 12.891
+},
+{
+"id": "w29",
+"line": 2,
+"text": "Paghi",
+"start": 13.201,
+"end": 13.471
+},
+{
+"id": "w30",
+"line": 2,
+"text": "solo",
+"start": 13.471,
+"end": 13.7
+},
+{
+"id": "w31",
+"line": 2,
+"text": "gli",
+"start": 13.7,
+"end": 13.887
+},
+{
+"id": "w32",
+"line": 2,
+"text": "appuntamenti",
+"start": 13.887,
+"end": 14.448
+},
+{
+"id": "w33",
+"line": 2,
+"text": "qualificati.",
+"start": 14.448,
+"end": 14.968
+},
+{
+"id": "w34",
+"line": 3,
+"text": "Proprietari",
+"start": 15.2,
+"end": 15.821
+},
+{
+"id": "w35",
+"line": 3,
+"text": "di",
+"start": 15.821,
+"end": 15.995
+},
+{
+"id": "w36",
+"line": 3,
+"text": "casa.",
+"start": 15.995,
+"end": 16.268
+},
+{
+"id": "w37",
+"line": 3,
+"text": "Entrambi",
+"start": 16.639,
+"end": 17.151
+},
+{
+"id": "w38",
+"line": 3,
+"text": "i",
+"start": 17.151,
+"end": 17.285
+},
+{
+"id": "w39",
+"line": 3,
+"text": "decisori.",
+"start": 17.285,
+"end": 17.797
+},
+{
+"id": "w40",
+"line": 3,
+"text": "Almeno",
+"start": 18.12,
+"end": 18.543
+},
+{
+"id": "w41",
+"line": 3,
+"text": "quattro",
+"start": 18.543,
+"end": 19.022
+},
+{
+"id": "w42",
+"line": 3,
+"text": "infissi.",
+"start": 19.022,
+"end": 19.501
+},
+{
+"id": "w43",
+"line": 4,
+"text": "Se",
+"start": 19.75,
+"end": 19.91
+},
+{
+"id": "w44",
+"line": 4,
+"text": "manca",
+"start": 19.91,
+"end": 20.207
+},
+{
+"id": "w45",
+"line": 4,
+"text": "un",
+"start": 20.207,
+"end": 20.368
+},
+{
+"id": "w46",
+"line": 4,
+"text": "requisito,",
+"start": 20.368,
+"end": 20.848
+},
+{
+"id": "w47",
+"line": 4,
+"text": "quell'appuntamento",
+"start": 21.0,
+"end": 21.88
+},
+{
+"id": "w48",
+"line": 4,
+"text": "non",
+"start": 21.88,
+"end": 22.083
+},
+{
+"id": "w49",
+"line": 4,
+"text": "lo",
+"start": 22.083,
+"end": 22.241
+},
+{
+"id": "w50",
+"line": 4,
+"text": "paghi.",
+"start": 22.241,
+"end": 22.534
+},
+{
+"id": "w51",
+"line": 5,
+"text": "Clicca",
+"start": 22.8,
+"end": 23.179
+},
+{
+"id": "w52",
+"line": 5,
+"text": "su",
+"start": 23.179,
+"end": 23.356
+},
+{
+"id": "w53",
+"line": 5,
+"text": "Scopri",
+"start": 23.356,
+"end": 23.735
+},
+{
+"id": "w54",
+"line": 5,
+"text": "di",
+"start": 23.735,
+"end": 23.912
+},
+{
+"id": "w55",
+"line": 5,
+"text": "più,",
+"start": 23.912,
+"end": 24.139
+},
+{
+"id": "w56",
+"line": 5,
+"text": "e",
+"start": 24.378,
+"end": 24.483
+},
+{
+"id": "w57",
+"line": 5,
+"text": "prenota",
+"start": 24.483,
+"end": 24.841
+},
+{
+"id": "w58",
+"line": 5,
+"text": "una",
+"start": 24.841,
+"end": 25.03
+},
+{
+"id": "w59",
+"line": 5,
+"text": "chiamata",
+"start": 25.03,
+"end": 25.43
+},
+{
+"id": "w60",
+"line": 5,
+"text": "conoscitiva.",
+"start": 25.43,
+"end": 25.957
+}
+]

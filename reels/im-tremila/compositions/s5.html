@@ -1,0 +1,50 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: transparent; font-family: "Inter", sans-serif; overflow: hidden; }
+    .plate { position: absolute; inset: 0; overflow: hidden; }
+    .plate img, .plate video { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; object-fit: cover; }
+    .scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,8,6,0.62) 0%, rgba(10,8,6,0.0) 34%, rgba(10,8,6,0.0) 66%, rgba(10,8,6,0.55) 100%); }
+    .t { position: absolute; left: 40px; right: 40px; text-align: center; color: #fff; font-weight: 900; letter-spacing: -0.035em; line-height: 0.95;
+         text-transform: uppercase; text-shadow: 0 6px 30px rgba(0,0,0,0.45); }
+    .t em { font-style: normal; color: #e37739; }
+
+    #s5-in { position: absolute; inset: 0; }
+    #s5-q { top: 90px; font-size: 84px; }
+    #s5-stamp { position: absolute; left: 70px; top: 800px; padding: 22px 40px; border: 14px solid #c8321e; border-radius: 26px; background: rgba(255,255,255,0.92);
+      color: #c8321e; font-weight: 900; font-size: 104px; letter-spacing: -0.03em; line-height: 0.95; text-align: center; }
+
+  </style>
+  <div id="root" data-composition-id="s5" data-width="1080" data-height="1350">
+    <div id="s5-wrap" style="position:absolute;inset:0" data-layout-allow-overflow data-layout-allow-overlap>
+      <div id="s5-in">
+        <div class="plate"><div id="s5-av"><img src="assets/img/i5.jpg" alt="" /></div><div class="scrim"></div></div>
+        <div id="s5-q" class="t">Manca un<br /><em>requisito?</em></div>
+        <div id="s5-stamp" data-layout-allow-occlusion>NON LO<br />PAGHI</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function tearPoly(y) {
+      const n = 16; let s = "polygon(0% 100%, 100% 100%";
+      for (let i = n; i >= 0; i--) {
+        const x = (i / n) * 100;
+        const yy = y + (i % 2 ? 2.4 : -2.0) + (((i * 37) % 5) - 2) * 0.5;
+        s += `, ${x.toFixed(2)}% ${yy.toFixed(2)}%`;
+      }
+      return s + ")";
+    }
+    const tl = gsap.timeline({ paused: true });
+    function tearTo(sel, at, dur) {
+      const el = document.querySelector(sel); const p = { y: 112 };
+      el.style.clipPath = tearPoly(112);
+      tl.fromTo(p, { y: 112 }, { y: -8, duration: dur, ease: "power3.inOut", onUpdate: () => { el.style.clipPath = tearPoly(p.y); } }, at);
+    }
+
+    tearTo("#s5-in", 0, 0.42);
+    tl.fromTo("#s5-av", { scale: 1.12, x: 30 }, { scale: 1.0, x: 0, duration: 3.1, ease: "none" }, 0);
+    tl.fromTo("#s5-q", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power2.out" }, 0.18);
+    // "paghi" abs 22.24 -> 2.64
+    tl.fromTo("#s5-stamp", { opacity: 0, scale: 2.4, rotation: -14 }, { opacity: 1, scale: 1, rotation: -7, duration: 0.2, ease: "back.out(1.6)" }, 2.3);
+    window.__timelines["s5"] = tl;
+  </script>
+</template>

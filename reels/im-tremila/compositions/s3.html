@@ -1,0 +1,54 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: transparent; font-family: "Inter", sans-serif; overflow: hidden; }
+    .plate { position: absolute; inset: 0; overflow: hidden; }
+    .plate img, .plate video { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; object-fit: cover; }
+    .scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,8,6,0.62) 0%, rgba(10,8,6,0.0) 34%, rgba(10,8,6,0.0) 66%, rgba(10,8,6,0.55) 100%); }
+    .t { position: absolute; left: 40px; right: 40px; text-align: center; color: #fff; font-weight: 900; letter-spacing: -0.035em; line-height: 0.95;
+         text-transform: uppercase; text-shadow: 0 6px 30px rgba(0,0,0,0.45); }
+    .t em { font-style: normal; color: #e37739; }
+
+    #s3-in { position: absolute; inset: 0; }
+    #s3-z { top: 100px; font-size: 240px; letter-spacing: -0.06em; }
+    #s3-zs { top: 330px; font-size: 64px; }
+    #s3-q { top: 100px; font-size: 84px; }
+
+  </style>
+  <div id="root" data-composition-id="s3" data-width="1080" data-height="1350">
+    <div id="s3-wrap" style="position:absolute;inset:0" data-layout-allow-overflow data-layout-allow-overlap>
+      <div id="s3-in">
+        <div class="plate"><div id="s3-av"><video id="s3-vid" class="clip" src="assets/video/v3.mp4" data-start="0" data-duration="3.6" muted playsinline></video></div><div class="scrim"></div></div>
+        <div id="s3-z" class="t"><em>0 €</em></div>
+        <div id="s3-zs" class="t">di canone mensile</div>
+        <div id="s3-q" class="t">Paghi solo<br /><em>appuntamenti</em><br />qualificati</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function tearPoly(y) {
+      const n = 16; let s = "polygon(0% 100%, 100% 100%";
+      for (let i = n; i >= 0; i--) {
+        const x = (i / n) * 100;
+        const yy = y + (i % 2 ? 2.4 : -2.0) + (((i * 37) % 5) - 2) * 0.5;
+        s += `, ${x.toFixed(2)}% ${yy.toFixed(2)}%`;
+      }
+      return s + ")";
+    }
+    const tl = gsap.timeline({ paused: true });
+    function tearTo(sel, at, dur) {
+      const el = document.querySelector(sel); const p = { y: 112 };
+      el.style.clipPath = tearPoly(112);
+      tl.fromTo(p, { y: 112 }, { y: -8, duration: dur, ease: "power3.inOut", onUpdate: () => { el.style.clipPath = tearPoly(p.y); } }, at);
+    }
+
+    // whip in from the right
+    tl.fromTo("#s3-in", { x: 1080, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.35, ease: "expo.out" }, 0);
+    tl.fromTo("#s3-av", { scale: 1.0 }, { scale: 1.06, duration: 3.6, ease: "none" }, 0);
+    tl.fromTo("#s3-z", { opacity: 0, scale: 2.4, filter: "blur(14px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "back.out(1.5)" }, 0.2);
+    tl.fromTo("#s3-zs", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out" }, 0.55);
+    tl.to("#s3-z, #s3-zs", { opacity: 0, filter: "blur(10px)", duration: 0.15, ease: "power3.in" }, 1.7);
+    // "Paghi" abs 13.20 -> 1.80
+    tl.fromTo("#s3-q", { opacity: 0, filter: "blur(10px)", scale: 1.15 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.25, ease: "expo.out" }, 1.8);
+    window.__timelines["s3"] = tl;
+  </script>
+</template>

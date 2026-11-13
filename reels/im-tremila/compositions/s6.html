@@ -1,0 +1,53 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: transparent; font-family: "Inter", sans-serif; overflow: hidden; }
+    .plate { position: absolute; inset: 0; overflow: hidden; }
+    .plate img, .plate video { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; object-fit: cover; }
+    .scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,8,6,0.62) 0%, rgba(10,8,6,0.0) 34%, rgba(10,8,6,0.0) 66%, rgba(10,8,6,0.55) 100%); }
+    .t { position: absolute; left: 40px; right: 40px; text-align: center; color: #fff; font-weight: 900; letter-spacing: -0.035em; line-height: 0.95;
+         text-transform: uppercase; text-shadow: 0 6px 30px rgba(0,0,0,0.45); }
+    .t em { font-style: normal; color: #e37739; }
+
+    #s6-in { position: absolute; inset: 0; background: #db6e33; }
+    #s6-mark { position: absolute; left: 0; right: 0; top: 70px; text-align: center; font-weight: 900; font-size: 76px; letter-spacing: -0.04em; color: #fff; }
+    #s6-mark em { font-style: normal; color: #1f1b18; }
+    #s6-btn { position: absolute; left: 110px; top: 1030px; width: 860px; height: 140px; border-radius: 28px; background: #fff; color: #1f1b18;
+      display: flex; align-items: center; justify-content: center; gap: 20px; font-size: 48px; font-weight: 900; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+
+  </style>
+  <div id="root" data-composition-id="s6" data-width="1080" data-height="1350">
+    <div id="s6-wrap" style="position:absolute;inset:0" data-layout-allow-overflow data-layout-allow-overlap>
+      <div id="s6-in">
+        <div class="plate"><div id="s6-av"><img src="assets/img/i6.jpg" alt="" /></div></div>
+        <div id="s6-mark"><span id="s6-markin">Infissi<em>Marketing</em></span></div>
+        <div id="s6-btn"><span>Prenota una chiamata</span><svg width="48" height="48" viewBox="0 0 46 46"><path d="M8 23 H36 M24 11 L36 23 L24 35" fill="none" stroke="#e37739" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function tearPoly(y) {
+      const n = 16; let s = "polygon(0% 100%, 100% 100%";
+      for (let i = n; i >= 0; i--) {
+        const x = (i / n) * 100;
+        const yy = y + (i % 2 ? 2.4 : -2.0) + (((i * 37) % 5) - 2) * 0.5;
+        s += `, ${x.toFixed(2)}% ${yy.toFixed(2)}%`;
+      }
+      return s + ")";
+    }
+    const tl = gsap.timeline({ paused: true });
+    function tearTo(sel, at, dur) {
+      const el = document.querySelector(sel); const p = { y: 112 };
+      el.style.clipPath = tearPoly(112);
+      tl.fromTo(p, { y: 112 }, { y: -8, duration: dur, ease: "power3.inOut", onUpdate: () => { el.style.clipPath = tearPoly(p.y); } }, at);
+    }
+
+    tl.fromTo("#s6-in", { opacity: 0, scale: 1.2, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 0);
+    tl.fromTo("#s6-av", { scale: 1.12, rotation: -3 }, { scale: 1.0, rotation: 0, duration: 4.9, ease: "power1.out" }, 0);
+    tl.fromTo("#s6-markin", { opacity: 0, clipPath: "inset(0% 100% 0% 0%)" }, { opacity: 1, clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power3.out" }, 0.1);
+    tl.fromTo("#s6-btn", { opacity: 0, y: 80, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "expo.out" }, 0.4);
+    // tap on "Scopri" abs 23.36 -> 0.66
+    tl.to("#s6-btn", { scale: 0.94, duration: 0.08, ease: "power2.in" }, 0.9);
+    tl.to("#s6-btn", { scale: 1, duration: 0.3, ease: "back.out(2)" }, 0.98);
+    window.__timelines["s6"] = tl;
+  </script>
+</template>
